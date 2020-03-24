@@ -1,5 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
+set rtp+=~/.fzf
 
 function! SomeCheck()
 	if filereadable("~/.vimrc")

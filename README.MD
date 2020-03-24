@@ -47,6 +47,7 @@ $ ln -s ~/dotfiles/zshrc ~/.zshrc
 $ ln -s ~/dotfiles/vimrc ~/.vimrc
 $ ln -s ~/dotfiles/.vim ~/.vim
 $ ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
+$ ln -s ~/dotfiles/.fzf ~/.fzf
 ```
 
 ### Submodules
@@ -65,6 +66,7 @@ $ ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 * git submodule add https://github.com/wincent/ferret ~/dotfiles/.vim/pack/bundle/start/ferret
 * git submodule add https://github.com/junegunn/fzf.vim ~/dotfiles/.vim/pack/bundle/start/fzf.vim
 * git submodule add https://github.com/SirVer/ultisnips ~/dotfiles/.vim/pack/bundle/start/ultisnips
-* git submodule add https://github.com/Shougo/deoplete.nvim ~/dotfiles/.vim/pack/bundle/start/deoplete.nvim<Paste>
+* git submodule add https://github.com/Shougo/deoplete.nvim ~/dotfiles/.vim/pack/bundle/start/deoplete.nvim
+* git submodule add https://github.com/junegunn/fzf ~/dotfiles/.fzf
 
 A big thank you to everyone who created or contributed to one of the projects!

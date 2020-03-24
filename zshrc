@@ -143,3 +143,5 @@ function () {
 
 export RPROMPT=$RPROMPT_BASE
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
