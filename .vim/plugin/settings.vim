@@ -1,4 +1,3 @@
-colorscheme base16-monokai
 scriptencoding utf-8
 
 set autoindent                        " maintain indent of current line

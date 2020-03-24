@@ -21,12 +21,11 @@ let g:UltiSnipsSnippetDirectories = [
       \ $HOME . '/.vim/ultisnips',
       \ $HOME . '/.vim/ultisnips-private'
       \ ]
-
 if has('nvim')
   colorscheme base16-classic-dark
   " Don't forget to run :UpdateRemotePlugins to populate
   " `~/.local/share/nvim/rplugin.vim`.
-"  call wincent#defer#defer('call wincent#autocomplete#deoplete_init()')
+  call wincent#autocomplete#deoplete_init()
 
   inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   inoremap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
