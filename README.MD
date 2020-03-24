@@ -31,7 +31,7 @@ $ sudo add-apt-repository ppa:neovim-ppa/stable
 $ sudo apt update && sudo apt upgrade
 $ sudo apt install neovim python python-pip
 $ sudo pip3 install pynvim
-// for upgrading pynvim
+// to upgrade pynvim
 // python3 -m pip install --user --upgrade pynvim
 ```
 *Arch:*
@@ -39,7 +39,7 @@ $ sudo pip3 install pynvim
 $ sudo pacman -Syu
 $ sudo pacman -S neovim python python-pip
 $ sudo pip3 install pynvim
-// for upgrading pynvim
+// to upgrade pynvim
 // python3 -m pip install --user --upgrade pynvim
 ```
 
