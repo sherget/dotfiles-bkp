@@ -119,7 +119,7 @@ git_prompt_string() {
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='vim -c "colorscheme base16-classic-dark"'
+   export EDITOR='vim'
  fi
 
 ## Prompt

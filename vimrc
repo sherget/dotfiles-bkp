@@ -1,7 +1,11 @@
 colorscheme base16-monokai
 
-let mapleader="\<Space>"
-let maplocalleader=","
+" Define leader mappings
+let g:mapleader="\<Space>"
+let g:maplocalleader=","
+
+" Allow selfsigned SSL certs in restapi test
+let g:http_client_verify_ssl=0
 
 " Prevent tcomment from making a zillion mappings (we just want the operator).
 let g:tcomment_mapleader1=''
@@ -9,15 +13,6 @@ let g:tcomment_mapleader2=''
 let g:tcomment_mapleader_comment_anyway=''
 let g:tcomment_textobject_inlinecomment=''
 let g:tcomment_mapleader_uncomment_anyway='gu'
-
-" Ferret
-" File search(mnemonic: "[f]ind")
-nmap <leader>f <Plug>(FerretAckWord)
-" Multifile replace (mnemonic: "[r]eplace");
-nmap <leader>r <Plug>(FerretAcks)
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
 
 let s:ts_filetypes=[
       \   'typescript',
@@ -38,23 +33,7 @@ if filereadable('/usr/local/bin/python3')
   let g:python3_host_prog='/usr/local/bin/python3'
 endif
 
-if &loadplugins
-  if has('packages')
-    packadd! base16-vim
-    packadd! fzf.vim
-    packadd! ferret
-    packadd! indentLine
-    packadd! tcomment_vim
-    packadd! typescript-vim
-    packadd! ultisnips
-    packadd! vim-fugitive
-    packadd! vim-git
-    packadd! vim-javascript
-    packadd! vim-json
-    packadd! vim-repeat
-    packadd! vim-speeddating
-    packadd! vim-surround
-endif
+packadd! fzf.vim
 
 " Must come *after* the `:packadd!` calls above otherwise the contents of
 " package "ftdetect" directories won't be evaluated.

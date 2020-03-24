@@ -1,2 +1,4 @@
 backup/
-*.un~
+**/*.un~
+**/.netrwhist
+/tmp/shada

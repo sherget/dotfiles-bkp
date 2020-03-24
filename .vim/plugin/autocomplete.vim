@@ -22,7 +22,6 @@ let g:UltiSnipsSnippetDirectories = [
       \ $HOME . '/.vim/ultisnips-private'
       \ ]
 if has('nvim')
-  colorscheme base16-classic-dark
   " Don't forget to run :UpdateRemotePlugins to populate
   " `~/.local/share/nvim/rplugin.vim`.
   call wincent#autocomplete#deoplete_init()
