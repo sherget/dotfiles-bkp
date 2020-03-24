@@ -1,4 +1,4 @@
 backup/
 **/*.un~
 **/.netrwhist
-/tmp/shada
+.vim/tmp/shada

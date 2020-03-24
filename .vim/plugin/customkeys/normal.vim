@@ -4,5 +4,7 @@ nnoremap <Right> <NOP>
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 
-" Use Space+x to execute inline bashscript in any file
-nnoremap <leader>x :.!bash<CR>
+" Use ,+x to execute inline bash script
+nnoremap <localleader>x :.!bash<CR>
+nnoremap <localleader>p :.!python3<CR>
+nnoremap <leader>p :terminal python3<CR>i

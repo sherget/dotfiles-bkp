@@ -1,9 +1,3 @@
-colorscheme base16-monokai
-
-" Define leader mappings
-let g:mapleader="\<Space>"
-let g:maplocalleader=","
-
 " Allow selfsigned SSL certs in restapi test
 let g:http_client_verify_ssl=0
 
@@ -39,6 +33,11 @@ packadd! fzf.vim
 " package "ftdetect" directories won't be evaluated.
 filetype indent plugin on
 syntax on
+
+" Define leader mappings
+let g:mapleader="\<Space>"
+let g:maplocalleader=","
+colorscheme base16-monokai
 
 " After this file is sourced, plugin code will be evaluated.
 " See ~/.vim/after for files evaluated after that.
