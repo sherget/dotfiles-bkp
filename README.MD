@@ -6,18 +6,20 @@
 2. vim/neovim
 
 ## Manual installation for Debian and Arch based Distros
+```bash
+$ git clone --recurse-submodules -j8 https://github.com/sherget/dotfiles
+```
+
 ### 1. Zsh + oh-my-zsh
 *Debian:*
 ```bash
 $ sudo apt install zsh
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-$ cd && git clone https://github.com/sherget/dotfiles && cp dotfiles/.zshrc ~/.zshrc
 ```
 *Arch:*
 ```bash
 $ sudo pacman -S zsh
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-$ cp dotfiles/.zshrc ~/.zshrc
 ```
 
 ### 2. VIM / Neovim
@@ -39,6 +41,14 @@ $ sudo pip3 install pynvim
 // python3 -m pip install --user --upgrade pynvim
 ```
 
+### 3. Symlinks
+```bash
+$ ln -s ~/dotfiles/zshrc ~/.zshrc
+$ ln -s ~/dotfiles/vimrc ~/.vimrc
+$ ln -s ~/dotfiles/.vim ~/.vim
+$ ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
+```
+
 ### Submodules
 * git submodule add https://github.com/chriskempson/base16-vim ~/dotfiles/.vim/pack/bundle/start/base16-vim
 * git submodule add https://github.com/tpope/vim-repeat ~/dotfiles/.vim/pack/bundle/start/vim-repeat
@@ -56,3 +66,5 @@ $ sudo pip3 install pynvim
 * git submodule add https://github.com/junegunn/fzf.vim ~/dotfiles/.vim/pack/bundle/start/fzf.vim
 * git submodule add https://github.com/SirVer/ultisnips ~/dotfiles/.vim/pack/bundle/start/ultisnips
 * git submodule add https://github.com/Shougo/deoplete.nvim ~/dotfiles/.vim/pack/bundle/start/deoplete.nvim<Paste>
+
+A big thank you to everyone who created or contributed to one of the projects!
