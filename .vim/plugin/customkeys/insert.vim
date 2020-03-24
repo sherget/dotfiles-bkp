@@ -7,4 +7,3 @@ inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-inoremap <InsertLeave> <ESC>

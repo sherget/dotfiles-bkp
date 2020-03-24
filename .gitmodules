@@ -49,3 +49,6 @@
 [submodule "/home/me/dotfiles/.fzf"]
 	path = /home/me/dotfiles/.fzf
 	url = https://github.com/junegunn/fzf
+[submodule "/home/me/dotfiles/.vim/pack/bundle/start/vim-matchup"]
+	path = /home/me/dotfiles/.vim/pack/bundle/start/vim-matchup
+	url = https://github.com/andymass/vim-matchup
