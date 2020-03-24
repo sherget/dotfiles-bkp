@@ -1,0 +1,48 @@
+[submodule ".vim/pack/bundle/start/base16-vim"]
+	path = .vim/pack/bundle/start/base16-vim
+	url = https://github.com/chriskempson/base16-vim
+[submodule ".vim/pack/bundle/start/vim-repeat"]
+	path = .vim/pack/bundle/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule ".vim/pack/bundle/start/vim-speeddating"]
+	path = .vim/pack/bundle/start/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating
+[submodule ".vim/pack/bundle/start/vim-http-client"]
+	path = .vim/pack/bundle/start/vim-http-client
+	url = https://github.com/aquach/vim-http-client
+[submodule ".vim/pack/bundle/start/vim-surround"]
+	path = .vim/pack/bundle/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule ".vim/pack/bundle/start/vim-git"]
+	path = .vim/pack/bundle/start/vim-git
+	url = https://github.com/tpope/vim-git
+[submodule ".vim/pack/bundle/start/vim-fugitive"]
+	path = .vim/pack/bundle/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule ".vim/pack/bundle/start/tcomment_vim"]
+	path = .vim/pack/bundle/start/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
+[submodule ".vim/pack/bundle/start/indentLine"]
+	path = .vim/pack/bundle/start/indentLine
+	url = https://github.com/Yggdroot/indentLine
+[submodule ".vim/pack/bundle/start/typescript-vim"]
+	path = .vim/pack/bundle/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule ".vim/pack/bundle/start/vim-json"]
+	path = .vim/pack/bundle/start/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule ".vim/pack/bundle/start/vim-javascript"]
+	path = .vim/pack/bundle/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule ".vim/pack/bundle/start/ferret"]
+	path = .vim/pack/bundle/start/ferret
+	url = https://github.com/wincent/ferret
+[submodule ".vim/pack/bundle/start/fzf.vim"]
+	path = .vim/pack/bundle/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule ".vim/pack/bundle/start/ultisnips"]
+	path = .vim/pack/bundle/start/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule ".vim/pack/bundle/start/deoplete.nvim"]
+	path = .vim/pack/bundle/start/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
