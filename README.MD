@@ -6,8 +6,10 @@
 2. vim/neovim
 
 ## Manual installation for Debian and Arch based Distros
+**Clone the repo and set capslock to escape**
 ```bash
 $ git clone --recurse-submodules -j8 https://github.com/sherget/dotfiles
+$ setxkbmap -option caps:escape
 ```
 
 ### 1. Zsh + oh-my-zsh

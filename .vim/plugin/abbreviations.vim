@@ -1,0 +1,2 @@
+" Abbreviations "
+cnoreabbrev H helpgrep
