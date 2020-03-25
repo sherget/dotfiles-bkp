@@ -52,3 +52,6 @@
 [submodule "/home/me/dotfiles/.vim/pack/bundle/start/vim-matchup"]
 	path = /home/me/dotfiles/.vim/pack/bundle/start/vim-matchup
 	url = https://github.com/andymass/vim-matchup
+[submodule "/home/me/dotfiles/.vim/pack/bundle/start/scalpel"]
+	path = /home/me/dotfiles/.vim/pack/bundle/start/scalpel
+	url = https://github.com/wincent/scalpel.git
