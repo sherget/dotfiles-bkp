@@ -58,6 +58,7 @@ $ ln -s ~/dotfiles/vimrc ~/.vimrc
 $ ln -s ~/dotfiles/.vim ~/.vim
 $ ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 $ ln -s ~/dotfiles/.fzf ~/.fzf
+$ ln -s ~/dotfiles/rgignore ~/.rgignore
 ```
 
 ### Submodules
