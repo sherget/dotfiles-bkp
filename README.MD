@@ -30,7 +30,8 @@ $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/instal
 $ sudo add-apt-repository ppa:neovim-ppa/stable
 $ sudo apt update && sudo apt upgrade
 $ sudo apt install neovim python python-pip
-$ sudo pip3 install pynvim
+$ pip3 install pynvim && pip install pynvim
+$ pip3 install requests && pip install requests
 // to upgrade pynvim
 // python3 -m pip install --user --upgrade pynvim
 ```

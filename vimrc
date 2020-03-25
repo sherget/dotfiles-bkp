@@ -1,5 +1,5 @@
 " Allow selfsigned SSL certs in restapi test
-let g:http_client_verify_ssl=0
+let g:http_client_verify_ssl=1
 
 " Prevent tcomment from making a zillion mappings (we just want the operator).
 let g:tcomment_mapleader1=''
