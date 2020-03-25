@@ -1,0 +1,663 @@
+# VScode react snippets
+
+snippet met "create method function fnName(){}" b
+function ${1:fnName}() {
+		$2
+}
+endsnippet
+
+snippet rcc "class component skeleton" b
+import React, { Component } from 'react';
+
+class ${1:ComponentName} extends Component {
+		render() {
+				return (
+						${2:<div></div>}
+				);
+		}
+}
+
+export default $1;
+endsnippet
+
+snippet rrc "class component skeleton with react-redux connect" b
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+    return {
+			$1
+    };
+}
+
+class ${2:ComponentName} extends Component {
+    render() {
+        return (
+            <div>
+               $3
+            </div>
+        );
+    }
+}
+
+export default connect(
+    mapStateToProps,
+)(${2:ComponentName});
+endsnippet
+
+snippet rrdc "class component skeleton with react-redux connect and dispatch" b
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+    return {
+				$1
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+				$2
+    };
+}
+
+class ${3:ComponentName} extends Component {
+    render() {
+        return (
+            <div>
+               $3
+            </div>
+        );
+    }
+}
+
+export default connect(
+    mapStateToProps,
+)(${3:ComponentName});
+endsnippet
+
+snippet rccp "class component skeleton with prop types after the class" b
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class ${1:ComponentName} extends Component {
+    render() {
+        return (
+            <div>
+               $2
+            </div>
+        );
+    }
+}
+
+${1:ComponentName}.propTypes = {
+
+};
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rcjc "class component skeleton without import and default export lines" b
+class ${1:ComponentName} extends Component {
+    render() {
+        return (
+            <div>
+                $2
+            </div>
+        );
+    }
+}
+endsnippet
+
+snippet rcfc "class component skeleton that contains all the lifecycle methods" b
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+class ${1:ComponentName} extends Component {
+    constructor(props) {
+        super(props);
+				$2
+    }
+
+    componentWillMount() {
+				$3
+    }
+
+    componentDidMount() {
+				$4
+    }
+
+    componentWillReceiveProps(nextProps) {
+				$5
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+				$6
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+				$7
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+				$8
+    }
+
+    componentWillUnmount() {
+				$9
+    }
+
+    render() {
+        return (
+            <div>
+								$10
+            </div>
+        );
+    }
+}
+
+test.propTypes = {
+	$11
+};
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rwwd "class component skeleton without import and default export lines" b
+class ${1:ComponentName} extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+					$2
+				};
+    }
+
+    render() {
+        return (
+            <div>
+                $3
+            </div>
+        );
+    }
+}
+
+${1:ComponentName}.propTypes = {
+	$4
+};
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rpc "class pure component skeleton with prop types after the class" b
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
+class ${1:ComponentName} extends PureComponent {
+    render() {
+        return (
+            <div>
+   						$2
+            </div>
+        );
+    }
+}
+
+${1:ComponentName}.propTypes = {
+	$3
+};
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rsc "stateless component skeleton" b
+import React from 'react';
+
+const ${1:ComponentName} = () => {
+    return (
+        <div>
+           $2
+        </div>
+    );
+};
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rscp "stateless component with prop types skeleton" b
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const ${1:ComponentName} = props => {
+    return (
+        <div>
+           $2
+        </div>
+    );
+};
+
+${1:ComponentName}.propTypes = {
+
+};
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rscm "memoize stateless component skeleton" b
+import React, { memo } from 'react';
+
+const ${1:ComponentName} = memo(() => {
+    return (
+        <div>
+           $2
+        </div>
+    );
+});
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rscpm "memoize stateless component with prop types skeleton" b
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+
+const ${1:ComponentName} = memo((props) => {
+    return (
+        <div>
+    			$2
+        </div>
+    );
+});
+
+${1:ComponentName}.propTypes = {
+   $3
+};
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rsf "stateless named function skeleton" b
+import React from 'react';
+
+function ${1:ComponentName}(props) {
+    return (
+        <div>
+           $2
+        </div>
+    );
+}
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rsfp "stateless named function with prop types skeleton" b
+import React from 'react';
+import PropTypes from 'prop-types';
+
+${1:ComponentName}.propTypes = {
+   $3
+};
+
+function ${1:ComponentName}(props) {
+    return (
+        <div>
+           $2
+        </div>
+    );
+}
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet rsi "stateless component with prop types and implicit return" b
+import React from 'react';
+
+const ${1:ComponentName} = (props) => (
+           $2
+    );
+
+export default ${1:ComponentName};
+endsnippet
+
+snippet fcc "class component with flow types skeleton" b
+// @flow
+import * as React from 'react';
+type Props = {
+ $3
+};
+type State = {
+ $4
+};
+export class ${1:ComponentName} extends React.Component<Props, State>{
+  render() {
+    return (
+      <div>
+      	$2
+      </div>
+    );
+  };
+};
+endsnippet
+
+snippet fsf "stateless named function skeleton with flow types skeleton" b
+// @flow
+import * as React from 'react';
+type Props = {
+	$3
+};
+export function ${1:ComponentName}(props: Props) {
+  return (
+    <div>
+ 			$2
+    </div>
+  );
+};
+endsnippet
+
+snippet fsc "stateless component with flow types skeleton" b
+// @flow
+import * as React from 'react';
+type Props = {
+   $3
+};
+export const ${1:ComponentName} = (props: Props) => {
+    return (
+        <div>
+    			$2
+        </div>
+    );
+};
+endsnippet
+
+snippet rpt "empty propTypes declaration" b
+${1:declarationName}.propTypes = {
+   $2
+};
+endsnippet
+
+snippet rdp "empty defaultProps declaration" b
+${1:declarationName}.defaultProps = {
+   $2
+};
+endsnippet
+
+snippet con "class default constructor with	props" b
+constructor(${1:props}) {
+		super(${1:props});
+		$2
+}
+endsnippet
+
+snippet conc "class default constructor with props and context" b
+constructor(${1:props, context}) {
+		super(${1:props, context});
+		$2
+}
+endsnippet
+
+snippet est "empty state object"
+this.state = {
+		${1:stateName: 'value'}
+}
+endsnippet
+
+snippet cwm "componentWillMount method"
+componentWillMount() {
+   $1
+}
+endsnippet
+
+snippet cdm "componentDidMount method"
+componentDidMount() {
+   $1
+}
+endsnippet
+
+snippet cwr "componentWillReceiveProps method"
+componentWillReceiveProps(nextProps) {
+   $1
+}
+endsnippet
+
+snippet scu "shouldComponentUpdate method"
+shouldComponentUpdate(nextProps, nextState) {
+   $1
+}
+endsnippet
+
+snippet cwup "componentWillUpdate method"
+componentWillUpdate(nextProps, nextState) {
+   $1
+}
+endsnippet
+
+snippet cdup "componentDidUpdate method"
+componentDidUpdate(prevProps, prevState) {
+   $1
+}
+endsnippet
+
+snippet cwun "componentWillUnmount method"
+componentWillUnmount() {
+   $1
+}
+endsnippet
+
+snippet gsbu "getSnapshotBeforeUpdate method"
+getSnapshotBeforeUpdate(prevProps, prevState) {
+   $1
+}
+endsnippet
+
+snippet gdsfp "static getDerivedStateFromProps method"
+static getDerivedStateFromProps(nextProps, prevState) {
+   $1
+}
+endsnippet
+
+snippet cdc "componentDidCatch method"
+nentDidCatch(error, info) {
+		$1
+}
+endsnippet
+
+snippet ren "render method"
+render() {
+    return (
+        <div>
+						$1
+        </div>
+    );
+}
+endsnippet
+
+snippet sst "this.setState with object as parameter"
+this.setState($1);
+$2
+endsnippet
+
+snippet ssf "this.setState with function as parameter"
+this.setState((state, props) => { return { $1 }});
+$2
+endsnippet
+
+snippet props "this.props"
+this.props $1
+endsnippet
+
+snippet state "this.state"
+this.state $1
+endsnippet
+
+snippet bnd "binds the this of method inside the constructor"
+this.${1:propName} = this.${1:propName}.bind(this);
+endsnippet
+
+snippet disp "MapDispatchToProps redux function"
+function mapDispatchToProps(dispatch) {
+    return {
+				$1
+		}
+}
+endsnippet
+
+# Prop types
+snippet pta "PropTypes.array,"
+PropTypes.array,
+endsnippet
+
+snippet ptar "PropTypes.array.isRequired,"
+PropTypes.array.isRequired,
+endsnippet
+
+snippet ptb "PropTypes.bool,"
+PropTypes.bool,
+endsnippet
+
+snippet ptbr "PropTypes.bool.isRequired,"
+PropTypes.bool.isRequired,
+endsnippet
+
+snippet ptf "PropTypes.func,"
+PropTypes.func,
+endsnippet
+
+snippet ptfr "PropTypes.func.isRequired,"
+PropTypes.func.isRequired,
+endsnippet
+
+snippet ptn "PropTypes.number,"
+PropTypes.number,
+endsnippet
+
+snippet ptnr "PropTypes.number.isRequired,"
+PropTypes.number.isRequired,
+endsnippet
+
+snippet pto "PropTypes.object,"
+PropTypes.object,
+endsnippet
+
+snippet ptor "PropTypes.object.isRequired,"
+PropTypes.object.isRequired,
+endsnippet
+
+snippet pts "PropTypes.string,"
+PropTypes.string,
+endsnippet
+
+snippet ptsr "PropTypes.string.isRequired,"
+PropTypes.string.isRequired,
+endsnippet
+
+snippet ptnd "PropTypes.node,"
+PropTypes.node,
+endsnippet
+
+snippet ptndr "PropTypes.node.isRequired,"
+PropTypes.node.isRequired,
+endsnippet
+
+snippet ptel "PropTypes.element,"
+PropTypes.element,
+endsnippet
+
+snippet ptelr "PropTypes.element.isRequired,"
+PropTypes.element.isRequired,
+endsnippet
+
+snippet ptsm "PropTypes.symbol,"
+PropTypes.symbol,
+endsnippet
+
+snippet ptsmr "PropTypes.symbol.isRequired,"
+PropTypes.symbol.isRequired,
+endsnippet
+
+snippet ptan "PropTypes.any,"
+PropTypes.any,
+endsnippet
+
+snippet ptanr "PropTypes.any.isRequired,"
+PropTypes.any.isRequired,
+endsnippet
+
+snippet pti "PropTypes.instanceOf(ClassName),"
+PropTypes.instanceOf(${1:ClassName}),
+endsnippet
+
+snippet ptir "PropTypes.instanceOf(ClassName).isRequired,"
+PropTypes.instanceOf(${1:ClassName}).isRequired,
+endsnippet
+
+snippet pte "PropTypes.oneOf(['News', 'Photos']),"
+PropTypes.oneOf([${1:'News', 'Photos'}]),
+endsnippet
+
+snippet pter "PropTypes.oneOf(['News', 'Photos']).isRequired,"
+PropTypes.oneOf([${1:'News', 'Photos'}]).isRequired,
+endsnippet
+
+snippet ptet "PropTypes.oneOfType([PropTypes.string, PropTypes.number]),"
+PropTypes.oneOfType([${1:PropTypes.string, PropTypes.number}]),
+endsnippet
+
+snippet ptetr "PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,"
+PropTypes.oneOfType([{1:PropTypes.string, PropTypes.number}]).isRequired,
+endsnippet
+
+snippet ptao "PropTypes.arrayOf(PropTypes.number),"
+PropTypes.arrayOf(${1:PropTypes.number}),
+endsnippet
+
+snippet ptaor "PropTypes.arrayOf(PropTypes.number).isRequired,"
+PropTypes.arrayOf({1:PropTypes.number}).isRequired,
+endsnippet
+
+snippet ptoo "PropTypes.objectOf(PropTypes.number),"
+PropTypes.objectOf({1:PropTypes.number}),
+endsnippet
+
+snippet ptoor "PropTypes.objectOf(PropTypes.number).isRequired,"
+PropTypes.objectOf({1:PropTypes.number}).isRequired,
+endsnippet
+
+snippet ptoos "PropTypes.objectOf(PropTypes.shape())"
+PropTypes.objectOf({1:PropTypes.shape(),})
+endsnippet
+
+snippet ptoosr "PropTypes.objectOf(PropTypes.shape().isRequired)"
+PropTypes.objectOf({1:PropTypes.shape().isRequired})
+endsnippet
+
+snippet ptsh "PropTypes.shape({color: PropTypes.string, fontSize: PropTypes.number}),"
+PropTypes.shape({${1:color: PropTypes.string, fontSize: PropTypes.number}}),
+endsnippet
+
+snippet ptshr "PropTypes.shape({color: PropTypes.string, fontSize: PropTypes.number}).isRequired,"
+PropTypes.shape({${1:color: PropTypes.string, fontSize: PropTypes.number}}).isRequired,
+endsnippet
+
+snippet ptypes "static propTypes = {}"
+static propTypes = {$1}
+endsnippet
+
+# Custom stuff
+snippet imr "import React from 'react'" b
+import React from 'react';
+$1
+endsnippet
+
+snippet imrd "import ReactDOM from 'react-dom'" b
+import ReactDOM from 'react-dom';
+$1
+endsnippet
+
+snippet imrc "import React, { Component } from 'react'" b
+import React, { Component } from 'react';
+$1
+endsnippet
+snippet oc "onClick={() => this.doSomething()}" b
+onClick={() => this.${1:doSomething()}()}
+$2
+endsnippet

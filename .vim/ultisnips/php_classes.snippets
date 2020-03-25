@@ -1,0 +1,45 @@
+# Classes, Interfaces and Traits
+snippet class "create class ClassName() {}" b
+<?php
+
+namespace `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)((\/\w+)+)\/\w+.php$', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`;
+
+class `!p snip.rv = snip.basename or "ClassName"` ${1}
+{
+	${0}
+}
+endsnippet
+
+snippet interface "create interface InterfaceName {}" b
+<?php
+
+namespace `!v substitute(substitute(substitute(expand("%:p"), '\v(.*\/\U+)((\/\w+)+)\/\w+.php$', '\2', ''), '\/', '\\', 'g'), '\\', '', '')`;
+
+interface `!p snip.rv = snip.basename or "InterfaceName"` ${1}
+{
+	${0}
+}
+endsnippet
+
+snippet trait "create trait TraitName {}" b
+trait ${1}
+{
+	${2}
+}
+endsnippet
+
+# Constants, Namespaces
+snippet const "constant NAME_CONVENTION = '$1';" b
+const $1 = '$2';
+$3
+endsnippet
+
+snippet namespace "namespace Vendor\Model" b
+namespace $1;
+$2
+endsnippet
+
+snippet use "use Class as X | use Vendor\Pkg\Clash" b
+use $1;
+$2
+endsnippet

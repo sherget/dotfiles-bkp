@@ -1,0 +1,78 @@
+snippet todo "Set TODO reminder" b
+// TODO: ${1:desc} [`!v strftime("%a %x %H:%M")` by `echo $USER`]
+endsnippet
+
+# General stuff
+# Ifs
+snippet if "create if () {}"
+if ($1) {
+	$2
+}
+$3
+endsnippet
+
+snippet elif "create if () {} else {}"
+if ($1) {
+	$2
+} else {
+	$3
+}
+$4
+endsnippet
+
+snippet sif "create shorthand if else ($1 ? $2 : $3)"
+($1 ? $2 : $3)
+endsnippet
+
+# Loops
+snippet for "for ($1) {$2}"
+for ($i = $1; $i < $2; $i ++) {
+	$3
+}
+$4
+endsnippet
+
+snippet fore "arr.forEach(element => console.log(element));"
+$1.forEach($2 => $3);
+$4
+endsnippet
+
+snippet afil "arr.filter(el => el.length > x);"
+$1.filter($2 => $3);
+$4
+endsnippet
+
+snippet amap "arr.filter(el => el * 2);"
+$1.map($2 => $3);
+$4
+endsnippet
+
+snippet rev "arr.reverse() [!changes original array]"
+$1.reverse();
+$2
+endsnippet
+
+snippet join "arr.join([seperator])"
+$1.join();
+$2
+endsnippet
+
+snippet find "arr.find(element => element > 10)"
+$1.find($2 => $3);
+$4
+endsnippet
+
+snippet findindex "arr.findIndex(element => element > 10)"
+$1.findIndex($2 => $3);
+$4
+endsnippet
+
+snippet ared "arr.reduce(callback( accumulator, currentValue[, index[, array]] )[, initialValue])"
+$1.reduce($2 => $3);
+$4
+endsnippet
+
+snippet cl "console_log($1)"
+console.log($1);
+$2
+endsnippet
