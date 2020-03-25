@@ -43,6 +43,14 @@ $ sudo pip3 install pynvim
 // python3 -m pip install --user --upgrade pynvim
 ```
 
+### 3. Install riggrep (https://github.com/BurntSushi/ripgrep)
+If your Ubuntu version is earlier than 18.10 go to the most recent release on
+https://github.com/BurntSushi/ripgrep/releases, scroll to the bottom and download the desired package.
+Then install with:
+```bash
+$ sudo dpkg -i ripgrep_11.0.2_amd64.deb
+```
+
 ### 3. Symlinks
 ```bash
 $ ln -s ~/dotfiles/zshrc ~/.zshrc
