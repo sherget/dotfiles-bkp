@@ -60,6 +60,7 @@ $ ln -s ~/dotfiles/.vim ~/.vim
 $ ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 $ ln -s ~/dotfiles/.fzf ~/.fzf
 $ ln -s ~/dotfiles/rgignore ~/.rgignore
+$ ln -s ~/dotfiles/.zsh ~/.zsh
 ```
 
 ### Submodules
@@ -81,5 +82,7 @@ $ ln -s ~/dotfiles/rgignore ~/.rgignore
 * git submodule add https://github.com/andymass/vim-matchup .vim/pack/bundle/start/vim-matchup
 * git submodule add https://github.com/Shougo/deoplete.nvim .vim/pack/bundle/start/deoplete.nvim
 * git submodule add https://github.com/junegunn/fzf .fzf
+* git submodule add https://github.com/zsh-users/zsh-syntax-highlighting .zsh/zsh-syntax-highlighting
+* git submodule add https://github.com/zsh-users/zsh-autosuggestions .zsh/zsh-autosuggestions
 
 A big thank you to everyone who created or contributed to one of the projects!

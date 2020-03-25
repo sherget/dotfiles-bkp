@@ -56,7 +56,6 @@ autoload -U compinit colors zcalc
 compinit -d
 colors
 
-PROMPT="[${BLUE}%n${RESET}@${BLUE}%m ${RESET}%1~]# "
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"                              # plus/minus     - clean repo
@@ -125,6 +124,8 @@ git_prompt_string() {
 RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
 
+PROMPT="[$fg[BLUE]%n$reset_color@$fg[BLUE]%m $reset_color@%1~]# "
+
 # Anonymous function to avoid leaking variables.
 function () {
   if [[ $EUID -eq 0 ]]; then
@@ -133,19 +134,15 @@ function () {
     local SUFFIX=$(printf '%%F{red}\u276f%.0s%%f' {1..$LVL})
   fi
   export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B${SUFFIX}%b "
-  if [[ -n "$TMUXING" ]]; then
-    # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
-    # prompt still gets corrupted even if we add an extra space to compensate.
-    export ZLE_RPROMPT_INDENT=0
-  fi
 }
 
 export RPROMPT=$RPROMPT_BASE
-export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? aaasd "
 
 # Plugins
 plugins=(git git-prompt colored-man-pages)
 
-# Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Manual Plugins
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
