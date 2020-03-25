@@ -1,3 +1,5 @@
+colorscheme base16-monokai
+
 " Allow selfsigned SSL certs in restapi test
 let g:http_client_verify_ssl=1
 
@@ -37,7 +39,6 @@ syntax on
 " Define leader mappings
 let g:mapleader="\<Space>"
 let g:maplocalleader=","
-colorscheme base16-monokai
 
 " After this file is sourced, plugin code will be evaluated.
 " See ~/.vim/after for files evaluated after that.
