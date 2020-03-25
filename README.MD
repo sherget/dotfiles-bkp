@@ -63,23 +63,23 @@ $ ln -s ~/dotfiles/rgignore ~/.rgignore
 ```
 
 ### Submodules
-* git submodule add https://github.com/chriskempson/base16-vim ~/dotfiles/.vim/pack/bundle/start/base16-vim
-* git submodule add https://github.com/tpope/vim-repeat ~/dotfiles/.vim/pack/bundle/start/vim-repeat
-* git submodule add https://github.com/tpope/vim-speeddating ~/dotfiles/.vim/pack/bundle/start/vim-speeddating
-* git submodule add https://github.com/aquach/vim-http-client ~/dotfiles/.vim/pack/bundle/start/vim-http-client
-* git submodule add https://github.com/tpope/vim-surround ~/dotfiles/.vim/pack/bundle/start/vim-surround
-* git submodule add https://github.com/tpope/vim-git ~/dotfiles/.vim/pack/bundle/start/vim-git
-* git submodule add https://github.com/tpope/vim-fugitive ~/dotfiles/.vim/pack/bundle/start/vim-fugitive
-* git submodule add https://github.com/tomtom/tcomment_vim ~/dotfiles/.vim/pack/bundle/start/tcomment_vim
-* git submodule add https://github.com/Yggdroot/indentLine ~/dotfiles/.vim/pack/bundle/start/indentLine
-* git submodule add https://github.com/leafgarland/typescript-vim ~/dotfiles/.vim/pack/bundle/start/typescript-vim
-* git submodule add https://github.com/elzr/vim-json ~/dotfiles/.vim/pack/bundle/start/vim-json
-* git submodule add https://github.com/pangloss/vim-javascript ~/dotfiles/.vim/pack/bundle/start/vim-javascript
-* git submodule add https://github.com/wincent/ferret ~/dotfiles/.vim/pack/bundle/start/ferret
-* git submodule add https://github.com/junegunn/fzf.vim ~/dotfiles/.vim/pack/bundle/start/fzf.vim
-* git submodule add https://github.com/SirVer/ultisnips ~/dotfiles/.vim/pack/bundle/start/ultisnips
-* git submodule add https://github.com/andymass/vim-matchup ~/dotfiles/.vim/pack/bundle/start/vim-matchup
-* git submodule add https://github.com/Shougo/deoplete.nvim ~/dotfiles/.vim/pack/bundle/start/deoplete.nvim
-* git submodule add https://github.com/junegunn/fzf ~/dotfiles/.fzf
+* git submodule add https://github.com/chriskempson/base16-vim .vim/pack/bundle/start/base16-vim
+* git submodule add https://github.com/tpope/vim-repeat .vim/pack/bundle/start/vim-repeat
+* git submodule add https://github.com/tpope/vim-speeddating .vim/pack/bundle/start/vim-speeddating
+* git submodule add https://github.com/aquach/vim-http-client .vim/pack/bundle/start/vim-http-client
+* git submodule add https://github.com/tpope/vim-surround .vim/pack/bundle/start/vim-surround
+* git submodule add https://github.com/tpope/vim-git .vim/pack/bundle/start/vim-git
+* git submodule add https://github.com/tpope/vim-fugitive .vim/pack/bundle/start/vim-fugitive
+* git submodule add https://github.com/tomtom/tcomment_vim .vim/pack/bundle/start/tcomment_vim
+* git submodule add https://github.com/Yggdroot/indentLine .vim/pack/bundle/start/indentLine
+* git submodule add https://github.com/leafgarland/typescript-vim .vim/pack/bundle/start/typescript-vim
+* git submodule add https://github.com/elzr/vim-json .vim/pack/bundle/start/vim-json
+* git submodule add https://github.com/pangloss/vim-javascript .vim/pack/bundle/start/vim-javascript
+* git submodule add https://github.com/wincent/ferret .vim/pack/bundle/start/ferret
+* git submodule add https://github.com/junegunn/fzf.vim .vim/pack/bundle/start/fzf.vim
+* git submodule add https://github.com/SirVer/ultisnips .vim/pack/bundle/start/ultisnips
+* git submodule add https://github.com/andymass/vim-matchup .vim/pack/bundle/start/vim-matchup
+* git submodule add https://github.com/Shougo/deoplete.nvim .vim/pack/bundle/start/deoplete.nvim
+* git submodule add https://github.com/junegunn/fzf .fzf
 
 A big thank you to everyone who created or contributed to one of the projects!

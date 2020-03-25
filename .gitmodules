@@ -46,12 +46,12 @@
 [submodule ".vim/pack/bundle/start/deoplete.nvim"]
 	path = .vim/pack/bundle/start/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim
-[submodule "/home/me/dotfiles/.fzf"]
-	path = /home/me/dotfiles/.fzf
+[submodule ".fzf"]
+	path = .fzf
 	url = https://github.com/junegunn/fzf
-[submodule "/home/me/dotfiles/.vim/pack/bundle/start/vim-matchup"]
-	path = /home/me/dotfiles/.vim/pack/bundle/start/vim-matchup
+[submodule ".vim/pack/bundle/start/vim-matchup"]
+	path = .vim/pack/bundle/start/vim-matchup
 	url = https://github.com/andymass/vim-matchup
-[submodule "/home/me/dotfiles/.vim/pack/bundle/start/scalpel"]
-	path = /home/me/dotfiles/.vim/pack/bundle/start/scalpel
+[submodule ".vim/pack/bundle/start/scalpel"]
+	path = .vim/pack/bundle/start/scalpel
 	url = https://github.com/wincent/scalpel.git
