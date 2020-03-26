@@ -1,3 +1,42 @@
+fun! Start()
+  "Create a new unnamed buffer to display our splash screen inside of.
+  enew
+
+  " Set some options for this buffer to make sure that does not act like a
+  " normal winodw.
+  setlocal
+        \ bufhidden=wipe
+        \ buftype=nofile
+        \ nobuflisted
+        \ nocursorcolumn
+        \ nocursorline
+        \ nolist
+        \ nonumber
+        \ noswapfile
+        \ norelativenumber
+        \ syntax=off
+        \ textwidth=500
+
+  exec ":r ~/dotfiles/splash.vim"
+  exec ":IndentLinesDisable"
+
+  " When we are done writing out message set the buffer to readonly.
+  setlocal
+        \ nomodifiable
+        \ nomodified
+  exec ':execute "normal! gg"'
+
+  " Just like with the default start page, when we switch to insert mode
+  " a new buffer should be opened which we can then later save.
+  nnoremap <buffer><silent> e :IndentLinesEnable <bar> enew<CR>
+  nnoremap <buffer><silent> i :IndentLinesEnable <bar> enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> o :IndentLinesEnable <bar> enew <bar> startinsert<CR>
+endfun
+
+if argc() == 0
+  autocmd VimEnter * call Start()
+endif
+
 colorscheme base16-monokai
 
 " Allow selfsigned SSL certs in restapi test
