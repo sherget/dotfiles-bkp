@@ -16,12 +16,10 @@ $ setxkbmap -option caps:escape
 *Debian:*
 ```bash
 $ sudo apt install zsh
-$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 *Arch:*
 ```bash
 $ sudo pacman -S zsh
-$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ### 2. VIM / Neovim

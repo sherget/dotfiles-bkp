@@ -2,3 +2,5 @@ backup/
 **/*.un~
 **/.netrwhist
 .vim/tmp/shada
+*.swp
+*.swo
