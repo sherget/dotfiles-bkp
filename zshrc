@@ -85,7 +85,7 @@ colors
 ## Prompt
 # Modify the colors and symbols in these variables as desired.
 #GIT_PROMPT_SYMBOL="%{$fg[blue]%}"$(printf '%%F{blue}\u2387%.0s%%f' {1..$LVL})                              # plus/minus     - clean repo
-GIT_PROMPT_SYMBOL="%{$fg[blue]%}"$(printf '%%F{blue}\ue0b0%.0s%%f' {1..$LVL})                              # plus/minus     - clean repo
+GIT_PROMPT_SYMBOL="%{$fg[blue]%}"$(printf '%%F{blue}\ue0a0%.0s%%f' {1..$LVL})                              # plus/minus     - clean repo
 GIT_PROMPT_PREFIX="%{$fg[white]%}[%{$reset_color%}"
 GIT_PROMPT_SUFFIX="%{$fg[white]%}]%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"             # A"NUM"         - ahead by "NUM" commits
@@ -186,7 +186,7 @@ function () {
   else
     local SUFFIX=''
   fi
-  export PS1="[%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{red}%B%(1j.*.)%(?..!)%b%f%B${SUFFIX}%b]$ "
+  export PS1=$(printf '%%F{white}\u6c23%.0s%%f' {1..$LVL})"[%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{red}%B%(1j.*.)%(?..!)%b%f%B${SUFFIX}%b]$ "
 }
 
 export RPROMPT=$RPROMPT_BASE
