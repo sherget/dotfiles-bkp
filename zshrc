@@ -146,7 +146,7 @@ function -record-start-time() {
 }
 add-zsh-hook preexec -record-start-time
 
-
+RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 function -report-start-time() {
   emulate -L zsh
   if [ $ZSH_START_TIME ]; then
@@ -175,7 +175,6 @@ function -report-start-time() {
 }
 add-zsh-hook precmd -report-start-time
 
-RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
 
 # Anonymous function to avoid leaking variables.
