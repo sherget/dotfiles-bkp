@@ -50,7 +50,14 @@ Then install with:
 $ sudo dpkg -i ripgrep_11.0.2_amd64.deb
 ```
 
-### 3. Symlinks
+### 4. Install fancy font
+*Debian&Arch:*
+```bash
+$ git clone https://github.com/powerline/fonts
+$ cd fonts && ./install.sh
+$ cd .. && sudo rm -r fonts
+```
+### 5. Symlinks
 ```bash
 $ ln -s ~/dotfiles/zshrc ~/.zshrc
 $ ln -s ~/dotfiles/vimrc ~/.vimrc

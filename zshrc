@@ -84,7 +84,8 @@ colors
 
 ## Prompt
 # Modify the colors and symbols in these variables as desired.
-GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"                              # plus/minus     - clean repo
+#GIT_PROMPT_SYMBOL="%{$fg[blue]%}"$(printf '%%F{blue}\u2387%.0s%%f' {1..$LVL})                              # plus/minus     - clean repo
+GIT_PROMPT_SYMBOL="%{$fg[blue]%}"$(printf '%%F{blue}\ue0b0%.0s%%f' {1..$LVL})                              # plus/minus     - clean repo
 GIT_PROMPT_PREFIX="%{$fg[white]%}[%{$reset_color%}"
 GIT_PROMPT_SUFFIX="%{$fg[white]%}]%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"             # A"NUM"         - ahead by "NUM" commits
@@ -125,7 +126,7 @@ parse_git_state() {
     GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
   fi
   if [[ -n $GIT_STATE ]]; then
-    echo "$GIT_PROMPT_PREFIX$GIT_STATE"
+    echo "$GIT_STATE"
   fi
 }
 
@@ -133,7 +134,7 @@ git_prompt_string() {
   local git_where="$(parse_git_branch)"
 
   # If inside a Git repository, print its branch and state
-  [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$(parse_git_state) %{$fg[blue]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
+  [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$GIT_PROMPT_PREFIX$(parse_git_state) %{$fg[blue]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
 
   # If not inside the Git repo, print exit codes of last command (only if it failed)
   [ ! -n "$git_where" ] && echo "%{$fg[red]%} %(?..[%?])"
