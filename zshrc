@@ -26,8 +26,6 @@ setopt correct_all                                              # [default] argu
 setopt no_flow_control                                          # disable start (C-s) and stop (C-q) characters
 setopt ignore_eof                                               # [default] prevent accidental C-d from exiting shell
 setopt interactive_comments                                     # [default] allow comments, even in interactive shells
-autoload -Uz add-zsh-hook
-
 
 # Speed up completions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
