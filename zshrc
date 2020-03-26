@@ -139,43 +139,44 @@ git_prompt_string() {
   [ ! -n "$git_where" ] && echo "%{$fg[red]%} %(?..[%?])"
 }
 
-typeset -F SECONDS
-function -record-start-time() {
-  emulate -L zsh
-  ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
-}
-add-zsh-hook preexec -record-start-time
+#typeset -F SECONDS
+#function -record-start-time() {
+#  emulate -L zsh
+#  ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
+#}
+#add-zsh-hook preexec -record-start-time
 
-RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
-function -report-start-time() {
-  emulate -L zsh
-  if [ $ZSH_START_TIME ]; then
-    local DELTA=$(($SECONDS - $ZSH_START_TIME))
-    local DAYS=$((~~($DELTA / 86400)))
-    local HOURS=$((~~(($DELTA - $DAYS * 86400) / 3600)))
-    local MINUTES=$((~~(($DELTA - $DAYS * 86400 - $HOURS * 3600) / 60)))
-    local SECS=$(($DELTA - $DAYS * 86400 - $HOURS * 3600 - $MINUTES * 60))
-    local ELAPSED=''
-    test "$DAYS" != '0' && ELAPSED="${DAYS}d"
-    test "$HOURS" != '0' && ELAPSED="${ELAPSED}${HOURS}h"
-    test "$MINUTES" != '0' && ELAPSED="${ELAPSED}${MINUTES}m"
-    if [ "$ELAPSED" = '' ]; then
-      SECS="$(print -f "%.2f" $SECS)s"
-    elif [ "$DAYS" != '0' ]; then
-      SECS=''
-    else
-      SECS="$((~~$SECS))s"
-    fi
-    ELAPSED="${ELAPSED}${SECS}"
-    export RPROMPT="$(git_prompt_string) %F{white}[${ELAPSED}]%f $RPROMPT_BASE"
-    unset ZSH_START_TIME
-  else
-    export RPROMPT="$RPROMPT_BASE"
-  fi
-}
-add-zsh-hook precmd -report-start-time
+
+#function -report-start-time() {
+#  emulate -L zsh
+#  if [ $ZSH_START_TIME ]; then
+#    local DELTA=$(($SECONDS - $ZSH_START_TIME))
+#    local DAYS=$((~~($DELTA / 86400)))
+#    local HOURS=$((~~(($DELTA - $DAYS * 86400) / 3600)))
+#    local MINUTES=$((~~(($DELTA - $DAYS * 86400 - $HOURS * 3600) / 60)))
+#    local SECS=$(($DELTA - $DAYS * 86400 - $HOURS * 3600 - $MINUTES * 60))
+#    local ELAPSED=''
+#    test "$DAYS" != '0' && ELAPSED="${DAYS}d"
+#    test "$HOURS" != '0' && ELAPSED="${ELAPSED}${HOURS}h"
+#    test "$MINUTES" != '0' && ELAPSED="${ELAPSED}${MINUTES}m"
+#    if [ "$ELAPSED" = '' ]; then
+#      SECS="$(print -f "%.2f" $SECS)s"
+#    elif [ "$DAYS" != '0' ]; then
+#      SECS=''
+#    else
+#      SECS="$((~~$SECS))s"
+#    fi
+#    ELAPSED="${ELAPSED}${SECS}"
+#    export RPROMPT="$(git_prompt_string) %F{white}[${ELAPSED}]%f $RPROMPT_BASE"
+#    unset ZSH_START_TIME
+#  else
+#    export RPROMPT="$RPROMPT_BASE"
+#  fi
+#}
+#add-zsh-hook precmd -report-start-time
 
 setopt PROMPT_SUBST
+RPROMPT_BASE="${vcs_info_msg_0_}%F{blue}%~%f"
 
 # Anonymous function to avoid leaking variables.
 function () {
@@ -187,7 +188,7 @@ function () {
   export PS1=$(printf '%%F{white}\u6c23%.0s%%f' {1..$LVL})"[%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{red}%B%(1j.*.)%(?..!)%b%f%B${SUFFIX}%b]$ "
 }
 
-export RPROMPT=$RPROMPT_BASE
+export RPROMPT='$(git_prompt_string) $RPROMPT_BASE'
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 # Plugins
