@@ -94,6 +94,7 @@ GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"       # red circle  
 GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●%{$reset_color%}"     # yellow circle  - tracked files modified
 GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"        # green circle   - staged changes present = ready for "git push"
 
+# Functions
 parse_git_branch() {
   # Show Git branch/tag, or name-rev if on detached head
   ( git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD ) 2> /dev/null
@@ -138,42 +139,6 @@ git_prompt_string() {
   # If not inside the Git repo, print exit codes of last command (only if it failed)
   [ ! -n "$git_where" ] && echo "%{$fg[red]%} %(?..[%?])"
 }
-
-#typeset -F SECONDS
-#function -record-start-time() {
-#  emulate -L zsh
-#  ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
-#}
-#add-zsh-hook preexec -record-start-time
-
-
-#function -report-start-time() {
-#  emulate -L zsh
-#  if [ $ZSH_START_TIME ]; then
-#    local DELTA=$(($SECONDS - $ZSH_START_TIME))
-#    local DAYS=$((~~($DELTA / 86400)))
-#    local HOURS=$((~~(($DELTA - $DAYS * 86400) / 3600)))
-#    local MINUTES=$((~~(($DELTA - $DAYS * 86400 - $HOURS * 3600) / 60)))
-#    local SECS=$(($DELTA - $DAYS * 86400 - $HOURS * 3600 - $MINUTES * 60))
-#    local ELAPSED=''
-#    test "$DAYS" != '0' && ELAPSED="${DAYS}d"
-#    test "$HOURS" != '0' && ELAPSED="${ELAPSED}${HOURS}h"
-#    test "$MINUTES" != '0' && ELAPSED="${ELAPSED}${MINUTES}m"
-#    if [ "$ELAPSED" = '' ]; then
-#      SECS="$(print -f "%.2f" $SECS)s"
-#    elif [ "$DAYS" != '0' ]; then
-#      SECS=''
-#    else
-#      SECS="$((~~$SECS))s"
-#    fi
-#    ELAPSED="${ELAPSED}${SECS}"
-#    export RPROMPT="$(git_prompt_string) %F{white}[${ELAPSED}]%f $RPROMPT_BASE"
-#    unset ZSH_START_TIME
-#  else
-#    export RPROMPT="$RPROMPT_BASE"
-#  fi
-#}
-#add-zsh-hook precmd -report-start-time
 
 setopt PROMPT_SUBST
 RPROMPT_BASE="${vcs_info_msg_0_}%F{blue}%~%f"
