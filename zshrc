@@ -185,7 +185,7 @@ function () {
   else
     local SUFFIX=''
   fi
-  export PS1=$(printf '%%b%F{white}\u6c23%.0s%%f%b' {1..$LVL})"[%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{red}%B%(1j.*.)%(?..!)%b%f%B${SUFFIX}%b]$ "
+  export PS1=$(printf '%%F{white}\u6c23%.0s%%f' {1..$LVL})"[%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{red}%B%(1j.*.)%(?..!)%b%f%B${SUFFIX}%b]$ "
 }
 
 export RPROMPT=$RPROMPT_BASE
