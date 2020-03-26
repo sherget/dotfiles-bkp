@@ -84,7 +84,7 @@ colors
 
 ## Prompt
 # Modify the colors and symbols in these variables as desired.
-GIT_PROMPT_SYMBOL="%{$fg[blue]%}"$(printf '%%F{blue}\ue0a0%.0s%%f' {1..$LVL})
+GIT_PROMPT_SYMBOL="%{$fg[blue]%}"$(printf '%%F{blue}\ue0a0%.0s%%f ' {1..$LVL})
 GIT_PROMPT_PREFIX="%{$fg[white]%}[%{$reset_color%}"
 GIT_PROMPT_SUFFIX="%{$fg[white]%}]%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"             # A"NUM"         - ahead by "NUM" commits
