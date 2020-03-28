@@ -1,5 +1,5 @@
 #!/bin/bash
-dotfiles=('.vimrc' '.vim' '.fzf' '.config/neovim/init.vim' '.rgignore' '.zshrc' '.zsh')
+dotfiles=('.vimrc' '.vim' '.fzf' '.config/neovim/init.vim' '.gitignore_global' '.rgignore' '.zshrc' '.zsh')
 symlinks=('ln -s ~/dotfiles/zshrc ~/.zshrc'
 'ln -s ~/dotfiles/vimrc ~/.vimrc'
 'ln -s ~/dotfiles/.vim ~/.vim'
@@ -7,6 +7,7 @@ symlinks=('ln -s ~/dotfiles/zshrc ~/.zshrc'
 'ln -s ~/dotfiles/.fzf ~/.fzf'
 'ln -s ~/dotfiles/rgignore ~/.rgi'
 'ln -s ~/dotfiles/.zsh ~/.zsh'
+'ln -s ~/dotfiles/gitignore_global ~/.gitignore_global'
 )
 for dotfile in "${dotfiles[@]}"
 do

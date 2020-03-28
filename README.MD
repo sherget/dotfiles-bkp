@@ -66,6 +66,7 @@ $ ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 $ ln -s ~/dotfiles/.fzf ~/.fzf
 $ ln -s ~/dotfiles/rgignore ~/.rgignore
 $ ln -s ~/dotfiles/.zsh ~/.zsh
+$ ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
 ```
 
 ### Submodules
