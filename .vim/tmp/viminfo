@@ -12,7 +12,19 @@
 ~h
 # Command Line History (newest to oldest):
 :q!
-|2,0,1585165374,,"q!"
+|2,0,1585404456,,"q!"
+:colorscheme base16-apathy
+|2,0,1585404444,,"colorscheme base16-apathy"
+:syntax on
+|2,0,1585404435,,"syntax on"
+:q
+|2,0,1585404322,,"q"
+:UltiSnipsEdit!
+|2,0,1585404293,,"UltiSnipsEdit!"
+:UltiSnipsEdit
+|2,0,1585404277,,"UltiSnipsEdit"
+:version
+|2,0,1585404266,,"version"
 
 # Search String History (newest to oldest):
 
@@ -25,10 +37,3 @@
 # Registers:
 
 # History of marks within files (newest to oldest):
-
-> ~/.zshrc
-	*	1585165370	0
-	"	218	0
-	^	1	2
-	.	1	0
-	+	1	0

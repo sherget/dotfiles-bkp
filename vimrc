@@ -28,9 +28,9 @@ fun! Start()
 
   " Just like with the default start page, when we switch to insert mode
   " a new buffer should be opened which we can then later save.
-  nnoremap <buffer><silent> e :IndentLinesEnable <bar> enew<CR>
-  nnoremap <buffer><silent> i :IndentLinesEnable <bar> enew <bar> startinsert<CR>
-  nnoremap <buffer><silent> o :IndentLinesEnable <bar> enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> e :enew<CR>
+  nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+  nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
 endfun
 
 if argc() == 0
