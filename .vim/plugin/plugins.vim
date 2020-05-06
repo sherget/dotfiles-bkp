@@ -30,3 +30,14 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
 
+" Deoplete / Jedi
+let deoplete#sources#jedi#show_docstring = 1
+let g:jedi#completions_enabled = 0
+
+" Lang servers
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls', '-v']
+    \ }

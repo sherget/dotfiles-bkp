@@ -64,9 +64,6 @@
 [submodule ".vim/pack/bundle/start/vim-flake8"]
 	path = .vim/pack/bundle/start/vim-flake8
 	url = https://github.com/nvie/vim-flake8
-[submodule ".vim/pack/bundle/start/deoplete-jedi"]
-	path = .vim/pack/bundle/start/deoplete-jedi
-	url = https://github.com/deoplete-plugins/deoplete-jedi
 [submodule ".vim/pack/bundle/start/LanguageClient-neovim"]
 	path = .vim/pack/bundle/start/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim

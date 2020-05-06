@@ -12,3 +12,6 @@ augroup Mkdir
         \ call mkdir(expand("<afile>:p:h"), "p") |
     \ endif
 augroup END
+
+" Autoclose buffer / preview
+"autocmd CompleteDone * pclose

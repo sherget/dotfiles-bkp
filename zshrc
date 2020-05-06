@@ -8,7 +8,6 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 ## Options section
-setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
 setopt rcexpandparam                                            # Array expension with parameters
@@ -21,8 +20,8 @@ setopt auto_param_slash                                         # tab completing
 setopt auto_pushd                                               # [default] cd automatically pushes old dir onto dir stack
 setopt auto_resume                                              # allow simple commands to resume backgrounded jobs
 setopt clobber                                                  # allow clobbering with >, no need to use >!
-setopt correct                                                  # [default] command auto-correction
-setopt correct_all                                              # [default] argument auto-correction
+#setopt correct                                                  # [default] command auto-correction
+#setopt correct_all                                              # [default] argument auto-correction
 setopt no_flow_control                                          # disable start (C-s) and stop (C-q) characters
 setopt ignore_eof                                               # [default] prevent accidental C-d from exiting shell
 setopt interactive_comments                                     # [default] allow comments, even in interactive shells

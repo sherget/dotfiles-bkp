@@ -224,3 +224,5 @@ if has('wildmenu')
   set wildmenu                        " show options as list when switching buffers etc
 endif
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
+
+botright vertical pedit previewwindow

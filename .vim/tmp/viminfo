@@ -12,7 +12,7 @@
 ~h
 # Command Line History (newest to oldest):
 :q!
-|2,0,1585404456,,"q!"
+|2,0,1585667409,,"q!"
 :colorscheme base16-apathy
 |2,0,1585404444,,"colorscheme base16-apathy"
 :syntax on
