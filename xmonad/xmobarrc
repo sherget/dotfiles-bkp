@@ -1,0 +1,59 @@
+Config {
+       font = "xft:Hack Nerd Font:pixelsize=12:antialias=true:hinting=true",
+       , additionalFonts = [ "xft:FontAwesome:pixelsize=13" ]
+       , bgColor = "#282A36"
+       , fgColor = "#ffffff"
+       , position = TopSize L 100 24
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , iconRoot = "/home/shin/.xmonad/icons/" --default "."
+       commands = [
+                Run Battery [
+                "-t", "<acstatus><left>%",
+                "--",
+                --"-c", "charge_full",
+                "-O", "AC ",
+                "-o", "Bat ",
+                "-h", "green",
+                "-l", "red"
+                ] 10,
+                -- Frankfurt, Germany
+                Run WeatherX "EDDF"
+                 [ ("clear", "<icon=clear.xbm/>")
+                 , ("sunny", "<icon=sunny.xbm/>")
+                 , ("mostly clear", "<icon=clear.xbm/>")
+                 , ("mostly sunny", "<icon=mostly_sunny.xbm/>")
+                 , ("partly sunny", "<icon=mostly_sunny.xbm/>")
+                 , ("fair", "<icon=clear.xbm/>")
+                 , ("cloudy","<icon=cloudy.xbm/>")
+                 , ("overcast","<icon=cloudy.xbm/>")
+                 , ("partly cloudy",
+                 "<icon=partly_cloudy.xbm/>")
+                 , ("mostly cloudy",
+                 "<icon=mostly_cloudy.xbm/>")
+                 , ("considerable cloudiness",
+                 "<icon=thunder.xbm/>")]
+                 ["-t",
+                 "<skyConditionS> <tempC>C°",
+                 "-L",
+                 "15",
+                 "-H",
+                 "27",
+                 "--normal",
+                 "white",
+                 "--high",
+                 "red",
+                 "--low",
+                 "#00ccff"] 36000,
+                Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
+                Run Memory ["-t","Mem: <usedratio>%"] 10,
+                Run Date "%a %D %l:%M:%S %p" "date" 10,
+                Run Network "wlp59s0" [] 10,
+                Run StdinReader
+                ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<fc=#00ccff><icon=sharp.xbm/></fc> | %StdinReader% }%date%{ %wlp59s0% | %cpu% | %memory% | %EDDF% | %battery%         "
+       }
