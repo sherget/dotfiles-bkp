@@ -8,7 +8,7 @@ Config {
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
-       , iconRoot = "/home/shin/.xmonad/icons/" --default "."
+       , iconRoot = "/home/shin/dotfiles/xmonad/icons/" --default "."
        commands = [
                 Run Battery [
                 "-t", "<acstatus><left>%",

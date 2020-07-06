@@ -15,6 +15,7 @@ import XMonad.Actions.MouseResize
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
 -- Utility
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
@@ -57,10 +58,11 @@ myBorderWidth = 1
 -- KEYBINDINGS
 myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")      -- Restarts xmonad
-        , ("M-S-<Esc>", io exitSuccess)                -- Quits xmonad
-        , ("M-<Return>", spawn myTerminal)
+        , ("M-S-<Esc>", io exitSuccess)            -- Quits xmonad
         , ("M-q", kill1)                           -- Kill the currently focused client
         , ("M-S-q", killAll)                       -- Kill all windows on current workspace
+        , ("M-<Return>", spawn myTerminal)
+        , ("M-d", spawn "dmenu_run")                       -- Run dmenu
         ]
 
 -- LAYOUTS
@@ -134,6 +136,7 @@ myStartupHook = do
   spawnOnce "nm-applet &"
   spawnOnce "volumeicon &"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282A36 --height 22 &"
+  setWMName "LG3D"
 
 -- Workspaces --
 xmobarEscape :: String -> String
@@ -143,24 +146,19 @@ xmobarEscape = concatMap doubleLts
         doubleLts x   = [x]
 
 myWorkspaces :: [String]
-myWorkspaces = clickable . (map xmobarEscape)
-               -- $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-               $ ["dev", "www", "misc"]
-  where
-        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ "<fn=2>" ++ ws ++ "</fn>" ++ "</action>" |
-                      (i,ws) <- zip [1..9] l,
-                      let n = i ]
+myWorkspaces = ["dev", "www", "misc"] ++ map show [4..9]
 
 -- MAIN --
 main :: IO ()
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/shin/.xmonad/xmobarrc"
   xmonad $ docks defaultConfig {
-    modMask = mod4Mask
-    , terminal = myTerminal
-    , startupHook = myStartupHook
-    , manageHook = manageDocks <+> manageHook defaultConfig
-    , layoutHook = myLayoutHook
+    modMask              = mod4Mask
+    , terminal           = myTerminal
+    , startupHook        = myStartupHook
+    , workspaces         = myWorkspaces
+    , manageHook         = manageDocks <+> manageHook defaultConfig
+    , layoutHook         = myLayoutHook
     , borderWidth        = myBorderWidth
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
