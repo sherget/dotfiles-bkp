@@ -65,7 +65,6 @@ alias ll='ls --color=tty -l'
 alias la='ls --color=tty -la'
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
 alias triplehead='bash ~/.screenlayout/monitormodes.sh'
 
 # Theming section
