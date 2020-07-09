@@ -225,4 +225,4 @@ if has('wildmenu')
 endif
 set wildmode=longest:full,full        " shell-like autocomplete to unambiguous portion
 
-botright vertical pedit previewwindow
+"botright vertical pedit previewwindow
