@@ -137,9 +137,9 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M1-" ++ ['2'], sendMessage $ JumpToLayout "Monocle")
         , ("M1-" ++ ['3'], sendMessage $ JumpToLayout "Tabs")
         , ("M1-" ++ ['4'], sendMessage $ JumpToLayout "Tall")
-        , ("0x1008FF12", spawn "amixer -D pulse set Master toggle")
- --       , ("<0x1008FF12>", spawn "amixer -D pulse set Master toggle")
---        , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
+        , ("<XF86AudioMute>", spawn "exec amixer -D pulse set Master toggle")
+        , ("<XF86MonBrightnessDown>", spawn "exec amixer -D pulse set Master toggle")
+        , ("<XF86MonBrightnessUp>", spawn "exec amixer -D pulse set Master toggle")
         ]
 
 -- LAYOUTS
@@ -221,6 +221,7 @@ myStartupHook = do
   spawnOnce "volumeicon &"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x353535 --height 22 &"
   spawnOnce "setxkbmap -option caps:escape"
+  spawnOnce "xmodmap ~/dotfiles/xmodmaprc"
   setWMName "LG3D"
 
 -- Workspaces --
