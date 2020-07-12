@@ -1,7 +1,8 @@
 -- IMPORTS --
 
 -- Base
-import XMonad
+import XMonad hiding ( (|||) )
+import XMonad.Layout hiding ( (|||) )
 import System.IO
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
@@ -44,7 +45,7 @@ import XMonad.Layout.BorderResize
 import XMonad.Layout.Magnifier
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
-import XMonad.Layout.LayoutCombinators hiding ( (|||) )
+import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.LimitWindows (limitWindows, increaseLimit, decreaseLimit)
 import XMonad.Layout.Renamed (renamed, Rename(Replace))
@@ -65,7 +66,7 @@ xmobarTitleColor = "#e88915"
 
 myNormalBorderColor = "#777777"
 myFocusedBorderColor = "#00ccff"
-myBorderWidth = 0
+myBorderWidth = 1
 topbarHeight = 5
 
 myFocusFollowsMouse  = False
@@ -89,7 +90,9 @@ myHandleEventHook = docksEventHook
 scratchpads = [ NS "ranger" "st -c 'ranger' -e ranger" (className =? "ranger") manageTerm
               ,  NS "notes" "st -c 'scratchpad' -e 'nvim'" (className =? "scratchpad") manageTerm
               ,  NS "pavu" "pavucontrol" (className =? "Pavucontrol") manageWindow
+              ,  NS "keepass" "keepassxc" (className =? "KeePassXC") manageWindow
               ,  NS "networkmanager" "nm-connection-editor" (className =? "Nm-connection-editor") manageWindow
+              ,  NS "bluetooth" "blueman-manager" (className =? "Blueman-manager") manageWindow
               ,  NS "trello" "npm start --prefix ~/Applications/trello/" (className =? "Trello") manageTerm
               ]
   where
@@ -110,21 +113,33 @@ manageWindow = customFloating $ W.RationalRect l t w h
 -- KEYBINDINGS
 myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")      -- Restarts xmonad
-        , ("M-S-<Esc>", io exitSuccess)            -- Quits xmonad
+        , ("M1-<Esc>", io exitSuccess)             -- Quits xmonad
         , ("M-q", kill1)                           -- Kill the currently focused client
         , ("M-S-q", killAll)                       -- Kill all windows on current workspace
         , ("M-<Return>", spawn myTerminal)
-        , ("M-d", spawn "dmenu_run")               -- Run dmenu
-        , ("C-x", sendMessage ToggleStruts)      -- Toggle xmobar
+        , ("<F12>", spawn "exec xclip -sel clip < ~/Documents/.Credentials/.he-vserver-root")
+        , ("M-d", spawn "rofi -show drun")         -- Run rofi application launcher
+        , ("M-s", spawn "rofi -show ssh")          -- Run rofi ssh menu
+        , ("M-c", spawn "rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command 'echo -n \'{result}\' | xclip -selection clipboard'")     -- Run rofi calc
+        , ("C-x", sendMessage ToggleStruts)        -- Toggle xmobar
         , ("M-n", namedScratchpadAction scratchpads "notes")
         , ("M-e", namedScratchpadAction scratchpads "ranger")
         , ("M-m", namedScratchpadAction scratchpads "networkmanager")
         , ("M-p", namedScratchpadAction scratchpads "pavu")
+        , ("M-#", namedScratchpadAction scratchpads "keepass")
+        , ("M-b", namedScratchpadAction scratchpads "bluetooth")
         , ("M-S-t", namedScratchpadAction scratchpads "trello")
-   --     , ("M-S-u", sendMessage $ JumpToLayout "Unflexed")
-   --     , ("M-S-i", sendMessage $ JumpToLayout "Monocle")
-   --     , ("M-S-o", sendMessage $ JumpToLayout "Tabs")
-   --     , ("M-S-p", sendMessage $ JumpToLayout "Tall")
+        , ("C-M1-l", spawn "betterlockscreen -l")
+        , ("<Print>", spawn "maim ~/Screenshots/$(date +%s)-desktop.png")
+        , ("M-<Print>", spawn "maim ~/Screenshots/$(date +%s)-snippet.png -s -D -u | xclip -selection clipboard -t image/png -i")
+        , ("M-C-<Print>", spawn "maim ~/Screenshots/$(date +%s)-window.png -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png")
+        , ("M1-" ++ ['1'], sendMessage $ JumpToLayout "Unflexed")
+        , ("M1-" ++ ['2'], sendMessage $ JumpToLayout "Monocle")
+        , ("M1-" ++ ['3'], sendMessage $ JumpToLayout "Tabs")
+        , ("M1-" ++ ['4'], sendMessage $ JumpToLayout "Tall")
+        , ("0x1008FF12", spawn "amixer -D pulse set Master toggle")
+ --       , ("<0x1008FF12>", spawn "amixer -D pulse set Master toggle")
+--        , ("<XF86AudioMute>", spawn "amixer -D pulse set Master toggle")
         ]
 
 -- LAYOUTS
@@ -134,7 +149,7 @@ myLayoutHook = avoidStruts
               $ T.toggleLayouts threeCol
               $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
              where
-               myDefaultLayout =   threeCol
+               myDefaultLayout = threeCol
                                 ||| noBorders monocle
                                 ||| noBorders tabs
                                 ||| tall
@@ -174,14 +189,14 @@ mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 --           -- So we are applying Mirror to the ThreeCol layout.
 --           $ Mirror
 --           $ ThreeCol 1 (3/100) (1/2)
-threeCol = renamed [Replace "Unflexed"]
-         $ mySpacing 3
-         $ ThreeColMid 1 (1/10) (1/2)
-
 tall     = renamed [Replace "Tall"]
            $ limitWindows 12
            $ mySpacing 8
            $ ResizableTall 1 (1/100) (1/2) []
+
+threeCol = renamed [Replace "Unflexed"]
+         $ mySpacing 3
+         $ ThreeColMid 1 (1/10) (1/2)
 
 monocle  = renamed [Replace "Monocle"]
            $ limitWindows 20 Full
@@ -204,7 +219,7 @@ myStartupHook = do
   spawnOnce "picom &"
   spawnOnce "nm-applet &"
   spawnOnce "volumeicon &"
-  spawnOnce "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282A36 --height 22 &"
+  spawnOnce "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x353535 --height 22 &"
   spawnOnce "setxkbmap -option caps:escape"
   setWMName "LG3D"
 

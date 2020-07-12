@@ -1,0 +1,9 @@
+configuration {
+  show-icons: false;
+  modi: "drun,run,window,ssh,calc";
+  matching: "fuzzy";
+  hide-scrollbar: true;
+  terminal: "st";
+  ssh-command: "{terminal} -e {ssh-client} {host}";
+  theme: "~/dotfiles/rofi/Pop-Dark.rasi";
+}

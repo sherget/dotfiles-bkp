@@ -1,7 +1,7 @@
 Config {
        font = "xft:Hack Nerd Font:pixelsize=12:antialias=true:hinting=true",
        , additionalFonts = [ "xft:FontAwesome:pixelsize=13" ]
-       , bgColor = "#282A36"
+       , bgColor = "#353535"
        , fgColor = "#ffffff"
        , position = TopSize L 100 24
        , lowerOnStart = True

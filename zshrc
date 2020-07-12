@@ -5,7 +5,7 @@ export PATH=${PATH}
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PATH=~/.npm-global/bin:$PATH
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:${HOME}/.local/bin/:$PATH"
 
 ## Options section
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
