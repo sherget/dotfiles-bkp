@@ -5,5 +5,5 @@ configuration {
   hide-scrollbar: true;
   terminal: "st";
   ssh-command: "{terminal} -e {ssh-client} {host}";
-  theme: "~/dotfiles/rofi/Pop-Dark.rasi";
+  theme: "~/dotfiles/rofi/Pop-Dark-Modified.rasi";
 }

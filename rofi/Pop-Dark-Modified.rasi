@@ -9,6 +9,7 @@
     orange:                      #faa41a;
     blue:                        #00ccff;
     black:                       #000000;
+    white:                       #ffffff;
 
     selected-normal-foreground:  @blue;
     normal-foreground:           @foreground;
@@ -20,7 +21,7 @@
     selected-active-foreground:  @foreground;
     alternate-normal-foreground: @foreground;
     alternate-active-background: @blue;
-    bordercolor:                 @foreground;
+    bordercolor:                 @white;
     normal-background:           @background;
     selected-normal-background:  @background;
     separatorcolor:              @orange;
@@ -32,17 +33,25 @@
     selected-active-background:  @blue;
     active-background:           @orange;
 }
+
+#rofi {
+  border: 0;
+}
+
 #window {
-    border:     0;
+    border:     2px 0px 0px 0px;
     text-color: @foreground;
     background-color: rgba ( 0, 0, 0, 0 % );
     padding:    5;
     text-color: @bordercolor;
     background-color: @background;
+    border-radius: 5;
+    border-color:@blue;
 }
 #mainbox {
-    border:  0;
-    padding: 0;
+    border: 0px 0px 0px 0px;
+    border-color: @blue;
+    padding: 5px;
 }
 #message {
     border:     1px dash 0px 0px ;
