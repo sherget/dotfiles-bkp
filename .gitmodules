@@ -67,3 +67,9 @@
 [submodule ".vim/pack/bundle/start/LanguageClient-neovim"]
 	path = .vim/pack/bundle/start/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim
+[submodule "tagalong.vim"]
+	path = tagalong.vim
+	url = https://github.com/AndrewRadev/tagalong.vim
+[submodule ".vim/pack/bundle/start/tagalong.vim"]
+	path = .vim/pack/bundle/start/tagalong.vim
+	url = https://github.com/AndrewRadev/tagalong.vim

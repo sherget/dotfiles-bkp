@@ -138,8 +138,8 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M1-" ++ ['3'], sendMessage $ JumpToLayout "Tabs")
         , ("M1-" ++ ['4'], sendMessage $ JumpToLayout "Tall")
         , ("<XF86AudioMute>", spawn "exec amixer -D pulse set Master toggle")
-        , ("<XF86MonBrightnessDown>", spawn "exec amixer -D pulse set Master toggle")
-        , ("<XF86MonBrightnessUp>", spawn "exec amixer -D pulse set Master toggle")
+        , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%- && notify-send -h string:x-canonical-private-synchronous:anything $(brightnessctl | grep '%' | awk '{print $4}' | tr -d '(),') ")
+        , ("<XF86MonBrightnessUp>", spawn "brightnessctl set 10%+ && notify-send -h string:x-canonical-private-synchronous:anything $(brightnessctl | grep '%' | awk '{print $4}' | tr -d '(),') ")
         ]
 
 -- LAYOUTS
