@@ -90,6 +90,7 @@ myHandleEventHook = docksEventHook
 scratchpads = [ NS "ranger" "st -c 'ranger' -e ranger" (className =? "ranger") manageTerm
               ,  NS "notes" "st -c 'scratchpad' -e 'nvim'" (className =? "scratchpad") manageTerm
               ,  NS "pavu" "pavucontrol" (className =? "Pavucontrol") manageWindow
+              ,  NS "tor" "exec gtk-launch start-tor-browser" (className =? "Tor Browser") manageTerm
               ,  NS "keepass" "keepassxc" (className =? "KeePassXC") manageWindow
               ,  NS "networkmanager" "nm-connection-editor" (className =? "Nm-connection-editor") manageWindow
               ,  NS "bluetooth" "blueman-manager" (className =? "Blueman-manager") manageWindow
@@ -118,8 +119,9 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M-S-q", killAll)                       -- Kill all windows on current workspace
         , ("M-<Return>", spawn myTerminal)
         , ("<F12>", spawn "exec xclip -sel clip < ~/Documents/.Credentials/.he-vserver-root")
-        , ("M-d", spawn "rofi -show drun")         -- Run rofi application launcher
-        , ("M-s", spawn "rofi -show ssh")          -- Run rofi ssh menu
+        , ("M-d", spawn "rofi -show drun")                   -- Run rofi application launcher
+        , ("M-w", spawn "exec firefox")                      -- Run Firefox
+        , ("M-s", spawn "rofi -show ssh")                    -- Run rofi ssh menu
         , ("M-c", spawn "rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command 'echo -n \'{result}\' | xclip -selection clipboard'")     -- Run rofi calc
         , ("C-x", sendMessage ToggleStruts)        -- Toggle xmobar
         , ("M-n", namedScratchpadAction scratchpads "notes")
@@ -129,6 +131,8 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M-#", namedScratchpadAction scratchpads "keepass")
         , ("M-b", namedScratchpadAction scratchpads "bluetooth")
         , ("M-S-t", namedScratchpadAction scratchpads "trello")
+        , ("M-S-w", namedScratchpadAction scratchpads "tor")
+        , ("M-S-p", spawn "exec gtk-launch portfolio-performance")
         , ("C-M1-l", spawn "betterlockscreen -l")
         , ("<Print>", spawn "maim ~/Screenshots/$(date +%s)-desktop.png")
         , ("M-<Print>", spawn "maim ~/Screenshots/$(date +%s)-snippet.png -s -D -u | xclip -selection clipboard -t image/png -i")
