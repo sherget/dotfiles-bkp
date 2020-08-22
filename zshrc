@@ -154,11 +154,12 @@ export RPROMPT='$(git_prompt_string) $RPROMPT_BASE'
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 # Plugins
-plugins=(git git-prompt colored-man-pages)
+plugins=(git git-prompt colored-man-pages z)
 
 # Manual Plugins
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zshprofile
+source /usr/share/z/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

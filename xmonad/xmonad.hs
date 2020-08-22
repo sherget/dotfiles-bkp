@@ -30,6 +30,7 @@ import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Util.Replace
 import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedScratchpad
+import XMonad.Util.Scratchpad
 
 -- Layouts
 import XMonad.Layout.Tabbed
@@ -82,8 +83,6 @@ myHandleEventHook = docksEventHook
     where
         myDynHook = composeAll
             [
-            --  isPersonalHangouts --> forceCenterFloat
-            --, isWorkHangouts --> insertPosition End Newer
             ]
 
 -- SCRATCHPADS
@@ -92,6 +91,7 @@ scratchpads = [ NS "ranger" "st -c 'ranger' -e ranger" (className =? "ranger") m
               ,  NS "pavu" "pavucontrol" (className =? "Pavucontrol") manageWindow
               ,  NS "tor" "exec gtk-launch start-tor-browser" (className =? "Tor Browser") manageTerm
               ,  NS "keepass" "keepassxc" (className =? "KeePassXC") manageWindow
+              ,  NS "st" "st" (className =? "StScratchpad") manageWindow
               ,  NS "networkmanager" "nm-connection-editor" (className =? "Nm-connection-editor") manageWindow
               ,  NS "bluetooth" "blueman-manager" (className =? "Blueman-manager") manageWindow
               ,  NS "trello" "npm start --prefix ~/Applications/trello/" (className =? "Trello") manageTerm
@@ -123,13 +123,14 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M-w", spawn "exec firefox")                      -- Run Firefox
         , ("M-s", spawn "rofi -show ssh")                    -- Run rofi ssh menu
         , ("M-c", spawn "rofi -show calc -modi calc -no-show-match -no-sort -no-history -calc-command 'echo -n \'{result}\' | xclip -selection clipboard'")     -- Run rofi calc
-        , ("C-x", sendMessage ToggleStruts)        -- Toggle xmobar
+        , ("C-y", sendMessage ToggleStruts)        -- Toggle xmobar
         , ("M-n", namedScratchpadAction scratchpads "notes")
         , ("M-e", namedScratchpadAction scratchpads "ranger")
         , ("M-m", namedScratchpadAction scratchpads "networkmanager")
         , ("M-p", namedScratchpadAction scratchpads "pavu")
         , ("M-#", namedScratchpadAction scratchpads "keepass")
         , ("M-b", namedScratchpadAction scratchpads "bluetooth")
+        , ("M-,", scratchpadSpawnActionCustom "st -c StScratchpad")
         , ("M-S-t", namedScratchpadAction scratchpads "trello")
         , ("M-S-w", namedScratchpadAction scratchpads "tor")
         , ("M-S-p", spawn "exec gtk-launch portfolio-performance")
@@ -236,7 +237,7 @@ xmobarEscape = concatMap doubleLts
         doubleLts x   = [x]
 
 myWorkspaces :: [String]
-myWorkspaces = ["dev", "www", "misc"] ++ map show [4..9]
+myWorkspaces = ["www", "dev", "misc"] ++ map show [4..9]
 
 -- MAIN --
 main :: IO ()

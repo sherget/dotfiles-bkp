@@ -73,3 +73,6 @@
 [submodule ".vim/pack/bundle/start/emmet-vim"]
 	path = .vim/pack/bundle/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim
+[submodule ".vim/pack/bundle/start/markdown-preview.nvim"]
+	path = .vim/pack/bundle/start/markdown-preview.nvim
+	url = https://github.com/iamcco/markdown-preview.nvim

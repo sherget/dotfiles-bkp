@@ -1,4 +1,12 @@
+# vim swap + history files
 *.swp
 *.swo
 *.un~
+
+# ctags files
+tags
+
+# misc
 node_modules/
+
+

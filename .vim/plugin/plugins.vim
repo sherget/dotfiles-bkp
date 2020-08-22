@@ -41,3 +41,6 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'python': ['pyls', '-v']
     \ }
+
+" Emmet
+let g:user_emmet_leader_key='<C-X>'
