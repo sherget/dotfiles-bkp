@@ -44,3 +44,17 @@ let g:LanguageClient_serverCommands = {
 
 " Emmet
 let g:user_emmet_leader_key='<C-X>'
+
+" vim-surround angular
+" string interpolation
+au BufReadPost,BufNewFile * let b:surround_115 = "{{ \r }}"
+" ngDerictive eg [(ngModel)]
+au BufReadPost,BufNewFile * let b:surround_110 = "[(\r)]"
+
+" bracket replacement
+au BufReadPost,BufNewFile * let b:surround_119 = "(\r)"
+au BufReadPost,BufNewFile * let b:surround_87 = "( \r )"
+au BufReadPost,BufNewFile * let b:surround_101 = "[\r]"
+au BufReadPost,BufNewFile * let b:surround_69 = "[ \r ]"
+au BufReadPost,BufNewFile * let b:surround_114 = "{\r}"
+au BufReadPost,BufNewFile * let b:surround_82 = "{ \r }"

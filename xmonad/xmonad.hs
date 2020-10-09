@@ -23,6 +23,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.FadeWindows
+import XMonad.Hooks.EwmhDesktops -- important to make ueberzug usable for wayland
 
 -- Utility
 import XMonad.Util.Run(spawnPipe)
@@ -243,7 +244,7 @@ myWorkspaces = ["www", "dev", "misc"] ++ map show [4..9]
 main :: IO ()
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/shin/.xmonad/xmobarrc"
-  xmonad $ docks defaultConfig {
+  xmonad $ ewmh $ docks defaultConfig {
     modMask              = mod4Mask
     , terminal           = myTerminal
     , startupHook        = myStartupHook
