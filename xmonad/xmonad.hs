@@ -238,7 +238,7 @@ xmobarEscape = concatMap doubleLts
         doubleLts x   = [x]
 
 myWorkspaces :: [String]
-myWorkspaces = ["www", "dev", "misc"] ++ map show [4..9]
+myWorkspaces = ["www", "dev", "db", "misc"] ++ map show [5..9]
 
 -- MAIN --
 main :: IO ()
