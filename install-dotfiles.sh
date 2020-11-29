@@ -13,6 +13,7 @@ symlinks=('ln -s ~/dotfiles/zshrc ~/.zshrc'
 'ln -s ~/dotfiles/xmonad/xmonad.hs ~/.xmonad/xmonad.hs'
 'ln -s ~/dotfiles/xmonad/xmobarrc ~/.xmonad/xmobarrc'
 'ln -s ~/dotfiles/rofi/config.rasi ~/.config/rofi/config.rasi'
+'ln -s ~/dotfiles/picom/picom.conf ~/.config/picom.conf'
 )
 for dotfile in "${dotfiles[@]}"
 do
