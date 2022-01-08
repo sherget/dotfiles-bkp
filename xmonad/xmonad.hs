@@ -91,7 +91,7 @@ scratchpads = [ NS "ranger" "st -c 'ranger' -e ranger" (className =? "ranger") m
               ,  NS "notes" "st -c 'scratchpad' -e 'nvim'" (className =? "scratchpad") manageTerm
               ,  NS "pavu" "pavucontrol" (className =? "Pavucontrol") manageWindow
               ,  NS "tor" "exec gtk-launch start-tor-browser" (className =? "Tor Browser") manageTerm
-              ,  NS "keepass" "keepassxc" (className =? "KeePassXC") manageWindow
+              ,  NS "bitwarden" "bitwarden-desktop" (className =? "Bitwarden") manageWindow
               ,  NS "st" "st" (className =? "StScratchpad") manageWindow
               ,  NS "networkmanager" "nm-connection-editor" (className =? "Nm-connection-editor") manageWindow
               ,  NS "bluetooth" "blueman-manager" (className =? "Blueman-manager") manageWindow
@@ -129,7 +129,7 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M-e", namedScratchpadAction scratchpads "ranger")
         , ("M-m", namedScratchpadAction scratchpads "networkmanager")
         , ("M-p", namedScratchpadAction scratchpads "pavu")
-        , ("M-#", namedScratchpadAction scratchpads "keepass")
+        , ("M-#", namedScratchpadAction scratchpads "bitwarden")
         , ("M-b", namedScratchpadAction scratchpads "bluetooth")
         , ("M-,", scratchpadSpawnActionCustom "st -c StScratchpad")
         , ("M-S-t", namedScratchpadAction scratchpads "trello")
@@ -146,6 +146,8 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("<XF86AudioMute>", spawn "exec amixer -D pulse set Master toggle")
         , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%- && notify-send -h string:x-canonical-private-synchronous:anything $(brightnessctl | grep '%' | awk '{print $4}' | tr -d '(),') ")
         , ("<XF86MonBrightnessUp>", spawn "brightnessctl set 10%+ && notify-send -h string:x-canonical-private-synchronous:anything $(brightnessctl | grep '%' | awk '{print $4}' | tr -d '(),') ")
+        -- google-chrome-stable https://alternative.me/crypto/fear-and-greed-index/ -incognito --new-window
+        -- google-chrome-stable  https://stats.buybitcoinworldwide.com/stock-to-flow/-incognito --new-window
         ]
 
 -- LAYOUTS
