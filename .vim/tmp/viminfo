@@ -9,14 +9,21 @@
 
 
 # hlsearch on (H) or off (h):
-~H
+~h
+# Last Substitute String:
+$
+
 # Command Line History (newest to oldest):
 :q
-|2,0,1602280299,,"q"
+|2,0,1640531067,,"q"
+:wq
+|2,0,1613816793,,"wq"
 :q!
 |2,0,1602275359,,"q!"
 
 # Search String History (newest to oldest):
+? \s\+$
+|2,1,1613816793,,"\\s\\+$"
 
 # Expression History (newest to oldest):
 
