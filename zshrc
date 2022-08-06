@@ -52,9 +52,15 @@ function fg-bg() {
   fi
 }
 zle -N fg-bg
+
 bindkey '^Z' fg-bg
 bindkey '^R' history-incremental-pattern-search-backward
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^x' edit-command-line
+
+$(xrdb /home/shin/.Xresources)
 
 ## Alias section
 if type nvim > /dev/null 2>/dev/null; then
@@ -67,6 +73,9 @@ alias df='df -h'                                                # Human-readable
 alias free='free -m'                                            # Show sizes in MB
 alias triplehead='bash ~/.screenlayout/monitormodes.sh'
 alias sysupdate='pacman -Syu && xmonad --recompile'
+alias currentgpu='lspci -vnnn | perl -lne "print if /^\d+\:.+(\[\S+\:\S+\])/" | grep VGA'
+alias startxnvidia='prime-offload && optimus-manager --switch nvidia --no-confirm && sudo prime-switch'
+alias startxintel='prime-offload && optimus-manager --switch intel --no-confirm && sudo prime-switch'
 
 # Theming section
 autoload -U compinit colors zcalc
