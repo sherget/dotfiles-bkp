@@ -8,6 +8,7 @@ import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
 
 -- Data
+import Data.Default
 import Data.List
 import Data.Monoid
 
@@ -74,17 +75,6 @@ topbarHeight = 5
 myFocusFollowsMouse  = False
 myClickJustFocuses   = True
 
--- EVENTHOOK
-myHandleEventHook :: Event -> X All
-myHandleEventHook = docksEventHook
-                <+> fadeWindowsEventHook
-                <+> dynamicTitle myDynHook
-                <+> handleEventHook def
-                <+> XMonad.Layout.Fullscreen.fullscreenEventHook
-    where
-        myDynHook = composeAll
-            [
-            ]
 
 -- SCRATCHPADS
 scratchpads = [ NS "ranger" "st -c 'ranger' -e ranger" (className =? "ranger") manageTerm
@@ -230,6 +220,7 @@ myStartupHook = do
   spawnOnce "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x353535 --height 22 &"
   spawnOnce "setxkbmap -option caps:escape"
   spawnOnce "xmodmap ~/dotfiles/xmodmaprc"
+  spawnOnce "prime-offload"
   setWMName "LG3D"
 
 -- Workspaces --
@@ -242,16 +233,27 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces :: [String]
 myWorkspaces = ["www", "dev", "db", "misc"] ++ map show [5..9]
 
+-- EVENTHOOK
+myHandleEventHook :: Event -> X All
+myHandleEventHook = fadeWindowsEventHook
+                <+> dynamicTitle myDynHook
+                <+> handleEventHook def
+                <+> XMonad.Layout.Fullscreen.fullscreenEventHook
+    where
+        myDynHook = composeAll
+            [
+            ]
+
 -- MAIN --
 main :: IO ()
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/shin/.xmonad/xmobarrc"
-  xmonad $ ewmh $ docks defaultConfig {
+  xmonad $ ewmh $ docks def {
     modMask              = mod4Mask
     , terminal           = myTerminal
     , startupHook        = myStartupHook
     , workspaces         = myWorkspaces
-    , manageHook         = manageDocks <+> namedScratchpadManageHook scratchpads <+> manageHook defaultConfig
+    , manageHook         = manageDocks <+> namedScratchpadManageHook scratchpads <+> manageHook def
     , layoutHook         = myLayoutHook
     , handleEventHook    = myHandleEventHook
     , borderWidth        = myBorderWidth
