@@ -1,7 +1,7 @@
 Config {
        font = "xft:Hack Nerd Font:pixelsize=12:antialias=true:hinting=true",
        , additionalFonts = [ "xft:FontAwesome:pixelsize=13" ]
-       , bgColor = "#222222"
+       , bgColor = "#000000"
        , fgColor = "#ffffff"
        , position = TopSize L 100 25
        , lowerOnStart = True
@@ -47,7 +47,7 @@ Config {
                  "red",
                  "--low",
                  "#1378d2"] 36000,
-                Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
+                Run Cpu ["-L","3","-H","50","--normal","#1378d2","--high","red"] 10,
                 Run Memory ["-t","Mem: <usedratio>%"] 10,
                 Run Date "%a %D %l:%M:%S %p" "date" 10,
                 Run Network "wlp59s0" [] 10,
