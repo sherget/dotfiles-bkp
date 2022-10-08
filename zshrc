@@ -150,6 +150,18 @@ git_prompt_string() {
 setopt PROMPT_SUBST
 RPROMPT_BASE="${vcs_info_msg_0_}%F{blue}%~%f"
 
+# set dual monitors
+dual () {
+    xrandr --output eDP-1 --off --output DP-3 --primary --left-of DP-1-2 --output DP-1-2 --auto
+    xmonad --restart
+}
+
+# set single monitor
+single () {
+    xrandr --output eDP-1 --off --output DP-3 --primary --output DP-1-2 --off
+    xmonad --restart
+}
+
 # Anonymous function to avoid leaking variables.
 function () {
   if [[ $EUID -eq 0 ]]; then
@@ -173,3 +185,8 @@ source ~/.zshprofile
 source /usr/share/z/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
