@@ -1,9 +1,9 @@
 Config {
        font = "xft:Hack Nerd Font:pixelsize=12:antialias=true:hinting=true",
        , additionalFonts = [ "xft:FontAwesome:pixelsize=13" ]
-       , bgColor = "#353535"
+       , bgColor = "#222222"
        , fgColor = "#ffffff"
-       , position = TopSize L 100 24
+       , position = TopSize L 100 25
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True
@@ -36,7 +36,7 @@ Config {
                  , ("considerable cloudiness",
                  "<icon=thunder.xbm/>")]
                  ["-t",
-                 "<skyConditionS> <tempC>C°",
+                 "<skyConditionS> <tempC> C°",
                  "-L",
                  "15",
                  "-H",
@@ -46,14 +46,15 @@ Config {
                  "--high",
                  "red",
                  "--low",
-                 "#00ccff"] 36000,
+                 "#1378d2"] 36000,
                 Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10,
                 Run Memory ["-t","Mem: <usedratio>%"] 10,
                 Run Date "%a %D %l:%M:%S %p" "date" 10,
                 Run Network "wlp59s0" [] 10,
+                Run Network "enp10s0u1u2" [] 10,
                 Run StdinReader
                 ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<fc=#00ccff><icon=sharp.xbm/></fc> | %StdinReader% }%date%{ %wlp59s0% | %cpu% | %memory% | %EDDF% | %battery%         "
+       , template = "<fc=#1378d2><icon=source.xbm/></fc>| %StdinReader% }%date%{%wlp59s0% | %enp10s0u1u2% | %cpu% | %memory% | %EDDF% | %battery%        "
        }

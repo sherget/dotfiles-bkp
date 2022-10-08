@@ -1,3 +1,4 @@
+{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances #-}
 -- IMPORTS --
 
 -- Base
@@ -33,6 +34,7 @@ import XMonad.Util.Replace
 import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Scratchpad
+-- import XMonad.Util.Types
 
 -- Layouts
 import XMonad.Layout.Tabbed
@@ -60,16 +62,17 @@ import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), (??))
 import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
 import XMonad.Layout.WindowArranger (windowArrange, WindowArrangerMsg(..))
 import XMonad.Layout.ToggleLayouts
+-- import XMonad.Layout.Decoration
 
 -- VARIABLES --
 myTerminal = "st"
 
-xmobarCurrentWorkspaceColor = "#00ccff"
-xmobarTitleColor = "#e88915"
+xmobarCurrentWorkspaceColor = "#1378d2"
+xmobarTitleColor = "#1378d2" -- "#e88915"
 
 myNormalBorderColor = "#777777"
-myFocusedBorderColor = "#00ccff"
-myBorderWidth = 1
+myFocusedBorderColor = "#FFFFFF" -- "#00ccff"
+myBorderWidth = 0
 topbarHeight = 5
 
 myFocusFollowsMouse  = False
@@ -140,11 +143,31 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         -- google-chrome-stable  https://stats.buybitcoinworldwide.com/stock-to-flow/-incognito --new-window
         ]
 
+-- Decorator for one sided border indicator --
+-- data SideDecoration a = SideDecoration Direction2D
+--   deriving (Show, Read)
+--
+-- instance Eq a => DecorationStyle SideDecoration a where
+--
+--   shrink b (Rectangle _ _ dw dh) (Rectangle x y w h)
+--     | SideDecoration U <- b = Rectangle x (y + fi dh) w (h - dh)
+--     | SideDecoration R <- b = Rectangle x y (w - dw) h
+--     | SideDecoration D <- b = Rectangle x y w (h - dh)
+--     | SideDecoration L <- b = Rectangle (x + fi dw) y (w - dw) h
+--
+--   pureDecoration b dw dh _ st _ (win, Rectangle x y w h)
+--     | win `elem` W.integrate st && dw < w && dh < h = Just $ case b of
+--       SideDecoration U -> Rectangle x y w dh
+--       SideDecoration R -> Rectangle (x + fi (w - dw)) y dw h
+--       SideDecoration D -> Rectangle x (y + fi (h - dh)) w dh
+--       SideDecoration L -> Rectangle x y dw h
+--     | otherwise = Nothing
+
 -- LAYOUTS
 myLayoutHook = avoidStruts
               $ mouseResize
               $ windowArrange
-              $ T.toggleLayouts threeCol
+              $ T.toggleLayouts monocle
               $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
              where
                myDefaultLayout = threeCol
@@ -160,41 +183,18 @@ myLayoutHook = avoidStruts
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
+-- myDecorate :: l a -> ModifiedLayout (Decoration SideDecoration DefaultShrinker) l a
+-- myDecorate = decoration shrinkText defaultTheme (SideDecoration L)
+
 -- Defining Layouts
---magnify  = renamed [Replace "magnify"]
---           $ magnifier
---           $ limitWindows 12
---           $ mySpacing 8
---           $ ResizableTall 1 (3/100) (1/2) []
---floats   = renamed [Replace "floats"]
---           $ limitWindows 20 simplestFloat
---grid     = renamed [Replace "grid"]
---           $ limitWindows 12
---           $ mySpacing 8
---           $ mkToggle (single MIRROR)
---           $ Grid (16/10)
---spirals  = renamed [Replace "spirals"]
---           $ mySpacing 8
---           $ spiral (6/7)
---threeCol = renamed [Replace "threeCol"]
---           $ limitWindows 7
---           $ mySpacing 4
---           $ ThreeCol 1 (3/100) (1/2)
---threeRow = renamed [Replace "threeRow"]
---           $ limitWindows 7
---           $ mySpacing 4
---           -- Mirror takes a layout and rotates it by 90 degrees.
---           -- So we are applying Mirror to the ThreeCol layout.
---           $ Mirror
---           $ ThreeCol 1 (3/100) (1/2)
 tall     = renamed [Replace "Tall"]
            $ limitWindows 12
            $ mySpacing 8
            $ ResizableTall 1 (1/100) (1/2) []
 
 threeCol = renamed [Replace "Unflexed"]
-         $ mySpacing 3
-         $ ThreeColMid 1 (1/10) (1/2)
+          $ mySpacing 3
+          $ ThreeColMid 1 (1/10) (1/2)
 
 monocle  = renamed [Replace "Monocle"]
            $ limitWindows 20 Full
@@ -210,6 +210,7 @@ tabs     = renamed [Replace "Tabs"]
                       , activeTextColor     = "#ffffff"
                       , inactiveTextColor   = "#d0d0d0"
                       }
+
 
 -- Startuphook --
 myStartupHook = do
