@@ -218,7 +218,7 @@ myStartupHook = do
   spawnOnce "picom &"
   spawnOnce "nm-applet &"
   spawnOnce "volumeicon &"
-  spawnOnce "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x353535 --height 22 &"
+  spawnOnce "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x222222 --height 22 &"
   spawnOnce "setxkbmap -option caps:escape"
   spawnOnce "xmodmap ~/dotfiles/xmodmaprc"
   spawnOnce "prime-offload"
