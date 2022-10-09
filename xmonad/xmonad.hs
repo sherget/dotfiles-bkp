@@ -214,11 +214,11 @@ tabs     = renamed [Replace "Tabs"]
 
 -- Startuphook --
 myStartupHook = do
-  spawnOnce "nitrogen --restore &"
+  spawnOnce "nitrogen --set-zoom /home/shin/Pictures/backgrounds/main_background.jpg --head=0 && nitrogen --set-zoom /home/shin/Pictures/backgrounds/screen2_background.jpg --head=1"
   spawnOnce "picom &"
   spawnOnce "nm-applet &"
   spawnOnce "volumeicon &"
-  spawnOnce "trayer --edge top --align right --widthtype request --padding 4 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x000000 --height 22 &"
+  spawnOnce "trayer --edge top --align right --widthtype request --padding 5 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 --tint 0x000000 --height 22 &"
   spawnOnce "setxkbmap -option caps:escape"
   spawnOnce "xmodmap ~/dotfiles/xmodmaprc"
   spawnOnce "prime-offload"
