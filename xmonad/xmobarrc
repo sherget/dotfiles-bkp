@@ -29,12 +29,9 @@ Config {
                  , ("fair", "<icon=clear.xbm/>")
                  , ("cloudy","<icon=cloudy.xbm/>")
                  , ("overcast","<icon=cloudy.xbm/>")
-                 , ("partly cloudy",
-                 "<icon=partly_cloudy.xbm/>")
-                 , ("mostly cloudy",
-                 "<icon=mostly_cloudy.xbm/>")
-                 , ("considerable cloudiness",
-                 "<icon=thunder.xbm/>")]
+                 , ("partly cloudy", "<icon=partly_cloudy.xbm/>")
+                 , ("mostly cloudy", "<icon=mostly_cloudy.xbm/>")
+                 , ("considerable cloudiness", "<icon=thunder.xbm/>")]
                  ["-t",
                  "<skyConditionS> <tempC>°C",
                  "-L",
@@ -52,10 +49,14 @@ Config {
                 Run Date "%a %D %l:%M:%S %p" "date" 10,
                 Run Network "wlp59s0" [] 10,
                 Run Network "enp10s0u1u2" [] 10,
-                Run Volume "default" "2"
-                [ "--template", "Volume: <volume>", "--suffix", "True", "--", "--on", "" ] 10,
+                Run Alsa "default" "USB"
+                  [ "--template", "Volumetest: <volume>% / <status>"
+                    , "--suffix", "True"
+                    , "--"
+                    , "--on", ""
+                  ],
                 Run StdinReader
                 ]
        , sepChar = "%"
-       , alignSep = "}{" , template = "<fc=#1378d2><icon=source.xbm/></fc>| %StdinReader% }%date%{%wlp59s0% | %enp10s0u1u2% | %cpu% | %memory% | %EDDF% | %battery% | %default:2%          "
+       , alignSep = "}{" , template = "<fc=#1378d2><icon=source.xbm/></fc>| %StdinReader% }%date%{%wlp59s0% | %enp10s0u1u2% | %cpu% | %memory% | %EDDF% | %battery% | %alsa:default:USB%          "
        }
