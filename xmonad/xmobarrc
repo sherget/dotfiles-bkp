@@ -49,14 +49,15 @@ Config {
                 Run Date "%a %D %l:%M:%S %p" "date" 10,
                 Run Network "wlp59s0" [] 10,
                 Run Network "enp10s0u1u2" [] 10,
-                Run Alsa "default" "USB"
-                  [ "--template", "Volumetest: <volume>% / <status>"
+                Run Alsa "default:1" "PCM"
+                  [ "--template", "<status>"
                     , "--suffix", "True"
                     , "--"
-                    , "--on", ""
+                    , "-o", "<fc=#dc322f><fn=1>\xf026</fn> [muted]</fc>"
+                    , "--on", "<fc=#ffffff><fn=1>\xf028</fn> <volume></fc>"
                   ],
                 Run StdinReader
                 ]
        , sepChar = "%"
-       , alignSep = "}{" , template = "<fc=#1378d2><icon=source.xbm/></fc>| %StdinReader% }%date%{%wlp59s0% | %enp10s0u1u2% | %cpu% | %memory% | %EDDF% | %battery% | %alsa:default:USB%          "
+       , alignSep = "}{" , template = "<fc=#1378d2><icon=source.xbm/></fc>| %StdinReader% }%date%{%wlp59s0% | %enp10s0u1u2% | %cpu% | %memory% | %EDDF% | %battery% | %alsa:default:1:PCM%               "
        }
