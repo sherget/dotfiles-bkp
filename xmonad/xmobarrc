@@ -16,7 +16,7 @@ Config {
                 --"-c", "charge_full",
                 "-O", "AC ",
                 "-o", "Bat ",
-                "-h", "green",
+                "-h", "#00b800",
                 "-l", "red"
                 ] 10,
                 -- Frankfurt, Germany
@@ -36,25 +36,26 @@ Config {
                  , ("considerable cloudiness",
                  "<icon=thunder.xbm/>")]
                  ["-t",
-                 "<skyConditionS> <tempC> C°",
+                 "<skyConditionS> <tempC>°C",
                  "-L",
-                 "15",
+                 "16",
                  "-H",
                  "27",
                  "--normal",
-                 "white",
+                 "#00b800",
                  "--high",
-                 "red",
+                 "#b83a00",
                  "--low",
                  "#1378d2"] 36000,
-                Run Cpu ["-L","3","-H","50","--normal","#1378d2","--high","red"] 10,
-                Run Memory ["-t","Mem: <usedratio>%"] 10,
+                Run Cpu ["-L","3","-H","50","--normal","#00b800","--high","red"] 10,
+                Run Memory ["-t","Mem: <usedratio>%", "-L","3","-H","50","--normal","#00b800","--high","red"] 10,
                 Run Date "%a %D %l:%M:%S %p" "date" 10,
                 Run Network "wlp59s0" [] 10,
                 Run Network "enp10s0u1u2" [] 10,
+                Run Volume "default" "2"
+                [ "--template", "Volume: <volume>", "--suffix", "True", "--", "--on", "" ] 10,
                 Run StdinReader
                 ]
        , sepChar = "%"
-       , alignSep = "}{"
-       , template = "<fc=#1378d2><icon=source.xbm/></fc>| %StdinReader% }%date%{%wlp59s0% | %enp10s0u1u2% | %cpu% | %memory% | %EDDF% | %battery%        "
+       , alignSep = "}{" , template = "<fc=#1378d2><icon=source.xbm/></fc>| %StdinReader% }%date%{%wlp59s0% | %enp10s0u1u2% | %cpu% | %memory% | %EDDF% | %battery% | %default:2%          "
        }

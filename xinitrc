@@ -1,3 +1,3 @@
 #!/bin/sh
-dual &
+zsh -c 'source ~/.zshrc && dual'
 exec xmonad

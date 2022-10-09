@@ -13,6 +13,9 @@ import Data.Default
 import Data.List
 import Data.Monoid
 
+-- Graphics
+import Graphics.X11.ExtraTypes.XF86
+
 -- Actions
 import XMonad.Actions.CopyWindow (kill1, killAllOtherCopies)
 import XMonad.Actions.WithAll
@@ -34,6 +37,7 @@ import XMonad.Util.Replace
 import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Scratchpad
+--import XMonad.Util.ALSA
 -- import XMonad.Util.Types
 
 -- Layouts
@@ -77,7 +81,6 @@ topbarHeight = 5
 
 myFocusFollowsMouse  = False
 myClickJustFocuses   = True
-
 
 -- SCRATCHPADS
 scratchpads = [ NS "ranger" "st -c 'ranger' -e ranger" (className =? "ranger") manageTerm
@@ -136,7 +139,9 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M1-" ++ ['2'], sendMessage $ JumpToLayout "Monocle")
         , ("M1-" ++ ['3'], sendMessage $ JumpToLayout "Tabs")
         , ("M1-" ++ ['4'], sendMessage $ JumpToLayout "Tall")
-        , ("<XF86AudioMute>", spawn "exec amixer -D pulse set Master toggle")
+        , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+        , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+        , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
         , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%- && notify-send -h string:x-canonical-private-synchronous:anything $(brightnessctl | grep '%' | awk '{print $4}' | tr -d '(),') ")
         , ("<XF86MonBrightnessUp>", spawn "brightnessctl set 10%+ && notify-send -h string:x-canonical-private-synchronous:anything $(brightnessctl | grep '%' | awk '{print $4}' | tr -d '(),') ")
         -- google-chrome-stable https://alternative.me/crypto/fear-and-greed-index/ -incognito --new-window
@@ -216,9 +221,8 @@ tabs     = renamed [Replace "Tabs"]
 myStartupHook = do
   spawnOnce "nitrogen --set-zoom /home/shin/Pictures/backgrounds/main_background.jpg --head=0 && nitrogen --set-zoom /home/shin/Pictures/backgrounds/screen2_background.jpg --head=1"
   spawnOnce "picom &"
+  spawnOnce "trayer --edge top --align right --widthtype request --padding 5 --margin 0 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 --tint 0x000000 --height 22 &"
   spawnOnce "nm-applet &"
-  spawnOnce "volumeicon &"
-  spawnOnce "trayer --edge top --align right --widthtype request --padding 5 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 --tint 0x000000 --height 22 &"
   spawnOnce "setxkbmap -option caps:escape"
   spawnOnce "xmodmap ~/dotfiles/xmodmaprc"
   spawnOnce "prime-offload"

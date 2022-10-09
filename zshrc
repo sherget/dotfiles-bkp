@@ -154,8 +154,6 @@ RPROMPT_BASE="${vcs_info_msg_0_}%F{blue}%~%f"
 dual () {
   if [[ $(xrandr | grep "DP-3") =~ .*"connected".* ]]; then
     xrandr --output eDP-1 --off --output DP-3 --primary --left-of DP-1-2 --output DP-1-2 --auto
-    xmonad --restart
-    return 0
   else
     echo "No external display found!"
   fi
@@ -165,8 +163,6 @@ dual () {
 single () {
   if [[ $(xrandr | grep "DP-3") =~ .*"connected".* ]]; then
     xrandr --output eDP-1 --off --output DP-3 --primary --output DP-1-2 --off
-    xmonad --restart
-    return 0
   else
     echo "No external display found!"
   fi
