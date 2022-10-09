@@ -152,19 +152,15 @@ RPROMPT_BASE="${vcs_info_msg_0_}%F{blue}%~%f"
 
 # set dual monitors
 dual () {
-  if [[ $(xrandr | grep "DP-3") =~ .*"connected".* ]]; then
+  if [[ $(xrandr | grep "DP-3") =~ .*"DP-3 connected".* ]]; then
     xrandr --output eDP-1 --off --output DP-3 --primary --left-of DP-1-2 --output DP-1-2 --auto
-  else
-    echo "No external display found!"
   fi
 }
 
 # set single monitor
 single () {
-  if [[ $(xrandr | grep "DP-3") =~ .*"connected".* ]]; then
+  if [[ $(xrandr | grep "DP-3") =~ .*"DP-3 connected".* ]]; then
     xrandr --output eDP-1 --off --output DP-3 --primary --output DP-1-2 --off
-  else
-    echo "No external display found!"
   fi
 }
 
