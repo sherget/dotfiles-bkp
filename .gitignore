@@ -1,6 +1,10 @@
 backup/
 **/*.un~
 **/.netrwhist
-.vim/tmp/shada
+.vim/tmp/
+.vim/pack/bundle/start/
 *.swp
 *.swo
+*.swn
+*.bak
+**/cache/**
