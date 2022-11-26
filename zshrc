@@ -6,6 +6,8 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PATH=~/.npm-global/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:${HOME}/.local/bin/:$PATH"
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper_lazy.sh
 
 ## Options section
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
@@ -71,6 +73,9 @@ alias ll='ls --color=tty -l'
 alias la='ls --color=tty -la'
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
+
+alias g++='g++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -std=c++17 -Wc++17-extensions'
+
 alias triplehead='bash ~/.screenlayout/monitormodes.sh'
 alias sysupdate='pacman -Syu && xmonad --recompile'
 alias currentgpu='lspci -vnnn | perl -lne "print if /^\d+\:.+(\[\S+\:\S+\])/" | grep VGA'
