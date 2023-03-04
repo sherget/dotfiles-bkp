@@ -6,6 +6,7 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PATH=~/.npm-global/bin:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:${HOME}/.local/bin/:$PATH"
+export PATH=$PATH:/usr/bin/python:/usr/lib/python3.10/site-packages
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 
@@ -73,6 +74,7 @@ alias ll='ls --color=tty -l'
 alias la='ls --color=tty -la'
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
+alias encrypt='gpg --symmetric --cipher-algo AES256'
 
 alias g++='g++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -std=c++17 -Wc++17-extensions'
 

@@ -125,7 +125,7 @@ myKeys = [ ("M-C-r", spawn "xmonad --recompile")   -- Recompiles xmonad
         , ("M-e", namedScratchpadAction scratchpads "ranger")
         , ("M-m", namedScratchpadAction scratchpads "networkmanager")
         , ("M-p", namedScratchpadAction scratchpads "pavu")
-        , ("M-#", namedScratchpadAction scratchpads "bitwarden")
+        , ("M-\\", namedScratchpadAction scratchpads "bitwarden")
         , ("M-b", namedScratchpadAction scratchpads "bluetooth")
         , ("M-,", scratchpadSpawnActionCustom "st -c StScratchpad")
         , ("M-S-t", namedScratchpadAction scratchpads "trello")
@@ -219,11 +219,11 @@ tabs     = renamed [Replace "Tabs"]
 
 -- Startuphook --
 myStartupHook = do
-  spawnOnce "nitrogen --set-zoom /home/shin/Pictures/backgrounds/main_background.jpg --head=0 && nitrogen --set-zoom /home/shin/Pictures/backgrounds/screen2_background.jpg --head=1"
-  spawnOnce "picom &"
+  spawnOnce "nitrogen --set-zoom /home/shin/Pictures/backgrounds/main_background.jpg --head=0 && nitrogen --set-zoom /home/shin/Pictures/backgrounds/main_background.jpg --head=1"
+--  spawnOnce "picom &"
   spawnOnce "nm-applet &"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 5 --margin 0 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 0 --tint 0x000000 --height 22 &"
-  spawnOnce "setxkbmap -option caps:escape"
+  spawnOnce "setxkbmap -layout us -option caps:escape"
   spawnOnce "xmodmap ~/dotfiles/xmodmaprc"
   spawnOnce "prime-offload"
   setWMName "LG3D"
